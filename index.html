@@ -2,7 +2,7 @@
 <!--
   ============================================================================
   MUHAMMAD HAMZA KHAN — PORTFOLIO
-  Senior Product Designer · Lahore, PK
+  Senior Product Designer
   ============================================================================
 
   HOW THIS FILE IS ORGANIZED:
@@ -19,10 +19,11 @@
 
   HOW TO MAKE COMMON UPDATES:
     → Add a new case study  → search "ADD NEW CASE STUDY"
-    → Update your bio       → search "TO UPDATE: BIO"
+    → Update your bio       → search "TO UPDATE: BIO" (About page)
     → Update job title      → search "TO UPDATE: CURRENT ROLE"
     → Add a certification   → search "ADD NEW CERTIFICATION"
     → Add a new service     → search "ADD NEW SERVICE"
+    → Edit capabilities     → search "TO UPDATE: CAPABILITIES"
     → Update contact info   → search "TO UPDATE: CONTACT"
     → Change accent color   → search "TO UPDATE: ACCENT COLOR"
 
@@ -32,9 +33,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<meta name="theme-color" content="#050505" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Muhammad Hamza Khan — Senior Product Designer</title>
-<meta name="description" content="Senior Product Designer with 7+ years shipping products across AI, fintech, healthcare, and enterprise SaaS. Based in Lahore, working globally." />
+<meta name="description" content="Senior Product Designer with 7+ years shipping products across AI, fintech, healthcare, and enterprise SaaS." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -947,6 +949,354 @@ a:focus-visible, button:focus-visible {
   outline-offset: 4px; border-radius: 2px;
 }
 
+/* ========================================================
+   REDESIGN LAYER (Nov 2026)
+   Oversized display type, stepped statements, capability
+   lists and full-width case panels.
+   ======================================================== */
+.section-label .num::before { content: '('; }
+.section-label .num::after  { content: ')'; }
+.nav-links a { text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.72rem; }
+.nav-links a .num { display: none; }
+
+/* --- Hero: display headline fills the width --- */
+.hero { padding: 7.5rem 0 2.5rem; }
+.hero .container { display: flex; flex-direction: column; flex: 1; width: 100%; }
+.hero .hero-meta { margin-bottom: clamp(1.5rem, 4vh, 3rem); }
+.hero h1.hero-display {
+  font-size: clamp(3.1rem, 13.2vw, 13.5rem);
+  font-weight: 700; line-height: 0.84; letter-spacing: -0.065em;
+  text-transform: uppercase; margin: 0;
+}
+.hero-display .rotator { text-transform: none; letter-spacing: -0.03em; font-weight: 400; }
+.hero-display .rotator-words { min-width: 2.1em; height: 0.86em; }
+.rotator-word { animation-fill-mode: both; }
+.hero-side .scroll-cue::after { font-size: 1.1em; }
+.hero-foot {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  gap: 2rem; margin-top: auto; padding-top: clamp(2rem, 6vh, 4rem);
+}
+.hero-foot .hero-sub {
+  font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.75;
+  max-width: 540px; margin: 0;
+}
+.hero-side {
+  font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.15em;
+  color: var(--text-muted); text-align: right; white-space: nowrap;
+  display: flex; flex-direction: column; gap: 0.6rem;
+}
+.hero-side .live { color: var(--accent); }
+.hero-side .scroll-cue::after { content: ' ↓'; color: var(--accent); display: inline-block; animation: nudge 1.8s ease-in-out infinite; }
+@keyframes nudge { 0%,100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+.signature-mark { top: 6.5rem; }
+@media (max-width: 720px) {
+  .hero-foot { flex-direction: column; align-items: flex-start; }
+  .hero-side { text-align: left; }
+}
+
+/* --- Inner page headers share the display voice --- */
+.page-header h1 { font-weight: 700; text-transform: uppercase; letter-spacing: -0.055em; line-height: 0.88; font-size: clamp(2.6rem, 9vw, 8.5rem); }
+.page-header h1 .serif { text-transform: none; letter-spacing: -0.02em; }
+
+/* --- Stepped statement --- */
+.stepped { font-weight: 300; font-size: clamp(2.2rem, 6.2vw, 5.5rem); line-height: 1.02; letter-spacing: -0.04em; max-width: none; }
+.stepped .step { display: block; }
+.stepped .step:nth-child(2) { padding-left: 9%; }
+.stepped .step:nth-child(3) { padding-left: 21%; }
+@media (max-width: 720px) { .stepped .step:nth-child(2) { padding-left: 6%; } .stepped .step:nth-child(3) { padding-left: 12%; } }
+
+/* --- Capabilities --- */
+.cap-headline {
+  font-size: clamp(2.2rem, 6.4vw, 6rem); font-weight: 700; line-height: 0.9;
+  letter-spacing: -0.055em; text-transform: uppercase; margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+.cap-headline span { display: block; }
+.cap-headline .accent { color: var(--accent); }
+.cap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+@media (max-width: 900px) { .cap-grid { grid-template-columns: 1fr; gap: 3rem; } }
+.cap-col h3 {
+  font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.18em; color: var(--accent); margin-bottom: 1.25rem;
+}
+.cap-row {
+  display: grid; grid-template-columns: 0.9fr 1.3fr; gap: 1.5rem;
+  padding: 1.15rem 0; border-top: 1px solid var(--border-strong);
+  transition: padding 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.cap-row:last-child { border-bottom: 1px solid var(--border-strong); }
+.cap-row:hover { padding-left: 0.75rem; }
+.cap-row strong { font-weight: 500; font-size: 1.05rem; letter-spacing: -0.01em; }
+.cap-row span { color: var(--text-muted); font-size: 0.92rem; line-height: 1.5; }
+@media (max-width: 540px) { .cap-row { grid-template-columns: 1fr; gap: 0.3rem; } }
+.cap-more { margin-top: 2.5rem; }
+
+/* --- Full-width case panels --- */
+.cases-intro { padding-bottom: 3rem; }
+.case { display: block; position: relative; overflow: hidden; padding: clamp(2.5rem, 5vw, 4.5rem) 0; cursor: none; }
+.case.dark  { background: #0A0A0A; color: #F2EFE6; }
+.case.light { background: #F1EFEA; color: #0A0A0A; }
+.case-top {
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem;
+  font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+}
+.case-top .idx b { color: var(--accent); font-weight: 500; }
+.case-top p { max-width: 400px; text-transform: none; letter-spacing: 0; font-size: 0.85rem; line-height: 1.65; opacity: 0.78; }
+.case-name {
+  font-size: clamp(3rem, 14.5vw, 15rem); font-weight: 700; line-height: 0.8;
+  letter-spacing: -0.065em; text-transform: uppercase; text-align: center;
+  white-space: nowrap; margin-top: clamp(2rem, 4vw, 3.5rem);
+}
+.case-shot {
+  position: relative; z-index: 2; width: min(760px, 80%);
+  margin: clamp(-5.5rem, -4.6vw, -1.2rem) auto 0;
+  aspect-ratio: 808 / 632; border-radius: 10px; overflow: hidden;
+  background: rgba(128,128,128,0.18);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s;
+  transform: perspective(1400px) translateY(var(--lift, 0px)) scale(var(--sc, 1)) rotateX(calc(var(--sr, 0deg) + var(--tx, 0deg))) rotateY(var(--ty, 0deg));
+  transform-origin: 50% 100%; will-change: transform;
+}
+.case:hover .case-shot { --lift: -10px; box-shadow: 0 50px 110px rgba(0, 0, 0, 0.45); }
+.case-name { transform: translateX(var(--nx, 0px)); transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.case-shot img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.case:hover .case-shot img { transform: scale(1.03); }
+.case-foot {
+  display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+}
+.case-foot .tags { opacity: 0.65; }
+.case-link { position: relative; padding-bottom: 5px; }
+.case-link::after {
+  content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background: currentColor;
+  transform-origin: left; transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1), background 0.3s;
+}
+.case:hover .case-link { color: var(--accent); }
+.case:hover .case-link::after { background: var(--accent); }
+.case-link i { font-style: normal; display: inline-block; margin-left: 0.5rem; transition: transform 0.3s; }
+.case:hover .case-link i { transform: translate(3px, -3px); }
+@media (max-width: 720px) { .case-top { flex-direction: column; gap: 0.75rem; } .case-shot { width: 92%; } }
+.cases-outro { padding: 3rem 0 0; }
+.cases-outro .work-cta { margin-top: 0; border-top: none; padding-top: 0; }
+
+/* --- Footer --- */
+.footer { padding: 3rem 0 2rem; }
+.footer-top {
+  display: grid; grid-template-columns: 1.2fr 1fr auto; gap: 2rem; align-items: start;
+  padding-bottom: 2.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border);
+}
+@media (max-width: 720px) { .footer-top { grid-template-columns: 1fr; } }
+.footer-top .where { color: var(--text); font-size: 0.8rem; }
+.footer-top .where small { display: block; color: var(--text-muted); margin-top: 0.4rem; font-size: 0.72rem; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
+.footer-links a, .to-top { color: var(--text); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.72rem; transition: color 0.2s; }
+.footer-links a:hover, .to-top:hover { color: var(--accent); }
+.to-top { background: none; border: none; font-family: inherit; cursor: none; padding: 0; }
+
+/* ========================================================
+   3D LAYER — original, built from your own project covers
+   ======================================================== */
+/* Hero deck: three covers floating in perspective, following the cursor */
+.hero-deck {
+  position: absolute; right: calc(var(--gutter) + 1vw); top: 47%;
+  width: clamp(220px, 21vw, 340px); aspect-ratio: 808 / 632;
+  perspective: 1300px; z-index: 3; pointer-events: none;
+}
+.deck-stage {
+  position: absolute; inset: 0; transform-style: preserve-3d;
+  transform: rotateX(calc(12deg + var(--my, 0) * -9deg)) rotateY(calc(-26deg + var(--mx, 0) * 12deg));
+  transition: transform 0.25s ease-out; will-change: transform;
+}
+.deck-card {
+  position: absolute; inset: 0; border-radius: 10px; overflow: hidden;
+  background: #111; border: 1px solid rgba(10, 10, 10, 0.12);
+  box-shadow: 0 30px 60px rgba(10, 10, 10, 0.28);
+  transform-style: preserve-3d; animation: deckFloat 7s ease-in-out infinite;
+}
+.deck-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.deck-card:nth-child(1) { --z: -150px; --x: -22%; --y: -20%; animation-delay: -1.5s; opacity: 0.92; }
+.deck-card:nth-child(2) { --z: -40px;  --x: -8%;  --y: -6%;  animation-delay: -3.5s; }
+.deck-card:nth-child(3) { --z: 80px;   --x: 8%;   --y: 10%;  animation-delay: -5.5s; }
+@keyframes deckFloat {
+  0%, 100% { transform: translate3d(var(--x), var(--y), var(--z)); }
+  50%      { transform: translate3d(var(--x), calc(var(--y) - 5%), calc(var(--z) + 30px)); }
+}
+@media (max-width: 900px) {
+  .hero-deck { position: relative; right: auto; top: auto; width: min(64%, 330px); margin: 4.5rem auto 2rem; }
+}
+
+/* Image fallback: shown only if a cover cannot be loaded */
+.img-fallback {
+  position: absolute; inset: 0; z-index: 1; display: grid; place-items: center; text-align: center;
+  padding: 1rem; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: #F2EFE6;
+  background: radial-gradient(circle at 25% 20%, rgba(229, 72, 58, 0.55), transparent 55%), linear-gradient(135deg, #1a1a1a, #2a2826);
+}
+
+/* ========================================================
+   DARK THEME + THREAD (Nov 2026)
+   Near-black ground, ivory type, coral accent.
+   TO UPDATE: ACCENT COLOR also works here (change --accent).
+   ======================================================== */
+:root {
+  --bg: #050505; --bg-elev: #101010; --bg-elev-2: #1A1A19;
+  --border: rgba(242, 239, 230, 0.09); --border-strong: rgba(242, 239, 230, 0.2);
+  --text: #F2EFE6; --text-muted: #A19E95; --text-dim: #6F6C65;
+  --accent: #F0503C; --accent-deep: #D8402D;
+}
+body::before { opacity: 0.05; }
+.nav { background: rgba(5, 5, 5, 0.72); }
+.gallery-num, .gallery-cta { background: rgba(5, 5, 5, 0.8); color: var(--text); }
+.gallery-image { background: var(--bg-elev); }
+.case.dark  { background: #0C0C0B; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.case.light { background: #F1EFEA; color: #0A0A0A; }
+.deck-card { border-color: rgba(242, 239, 230, 0.16); box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6); }
+.btn.primary:hover { color: #fff; }
+.page { position: relative; }
+
+/* Thread: one coral line drawn down the page as you scroll */
+.thread { position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; overflow: visible; }
+.thread path { fill: none; stroke: var(--accent); stroke-width: 1.5; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+
+.thread circle.node { fill: var(--bg); stroke: var(--accent); stroke-width: 1.5; opacity: 0; transition: opacity 0.4s; }
+.thread circle.node.on { opacity: 1; }
+.thread circle.head { fill: var(--accent); }
+@media (max-width: 720px) { .thread .thread-ghost { display: none; } .thread path { stroke-width: 1.2; opacity: 0.8; } }
+
+/* Process strip on Home */
+.process-home-label { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.18em; color: var(--accent); margin: clamp(3rem, 6vw, 5rem) 0 0; }
+.process-home { margin-top: 1.25rem; }
+.process-home .process-step { background: var(--bg); }
+
+/* Home: intro statement, about teaser */
+.intro { padding-top: clamp(3rem, 6vw, 5rem); }
+.intro .section-title { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.intro-row { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: end; }
+.intro-copy { font-size: clamp(1rem, 1.5vw, 1.2rem); color: var(--text-muted); line-height: 1.65; max-width: 620px; }
+.intro-copy strong { color: var(--text); font-weight: 500; }
+.intro-keys { list-style: none; display: flex; gap: 2.5rem; justify-content: flex-end; flex-wrap: wrap; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; }
+.intro-keys li::before { content: '○ '; color: var(--accent); }
+.about-statement { font-size: clamp(2rem, 5.6vw, 5rem); font-weight: 300; line-height: 1.03; letter-spacing: -0.04em; max-width: 1150px; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.about-statement .serif { font-family: var(--font-serif); font-style: italic; color: var(--accent); }
+.about-teaser-row { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: end; }
+.about-bio { color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; max-width: 640px; }
+.about-bio strong { color: var(--text); font-weight: 500; }
+.about-sign { display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; justify-self: end; }
+.sign-name { font-family: var(--font-serif); font-style: italic; font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1; }
+.sign-role { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
+@media (max-width: 900px) { .intro-row, .about-teaser-row { grid-template-columns: 1fr; gap: 2rem; } .intro-keys { justify-content: flex-start; gap: 1.5rem; } .about-sign { justify-self: start; } }
+#page-about .page-header .contact-actions { margin-top: 2.5rem; }
+@media (max-width: 540px) { .nav-links { display: flex; gap: 0.8rem; } .nav-links a { font-size: 0.6rem; letter-spacing: 0.06em; } .nav-logo { font-size: 0; gap: 0; } .nav-logo .dot { width: 9px; height: 9px; } }
+
+/* Thread shapes: places where the line draws a figure (desktop only) */
+.thread-shape { position: absolute; width: var(--ts, 190px); height: var(--ts, 190px); pointer-events: none; }
+
+.cap-headline { position: relative; }
+
+@media (max-width: 1000px) { .thread-shape { display: none; } }
+.process-lead { color: var(--text-muted); font-size: clamp(1rem, 1.4vw, 1.2rem); line-height: 1.6; max-width: 700px; margin: -1.5rem 0 0; }
+
+/* Intro: ivory panel, display headline, large thread-drawn bulb */
+.thread { z-index: 1; }
+.intro { background: #F1EFEA; color: #0A0A0A; padding: clamp(4rem, 9vw, 8rem) 0; margin-top: clamp(2rem, 4vw, 3rem); }
+.intro .container { min-height: calc(var(--bulb, 380px) + 2rem); }
+.intro { --bulb: clamp(280px, 27vw, 400px); }
+.intro-headline { font-size: clamp(2.4rem, 6.6vw, 6.6rem); font-weight: 700; line-height: 0.88; letter-spacing: -0.06em; text-transform: uppercase; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.intro-headline span { display: block; }
+.intro-headline span:nth-child(even) { padding-left: 0.9em; }
+.intro .intro-copy { font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.75; color: #4A4843; max-width: 520px; }
+.intro .intro-copy strong { color: #0A0A0A; }
+.intro .thread-shape { right: 12%; top: 0; --ts: var(--bulb); }
+.shape-label { position: absolute; left: calc(100% + 1.25rem); font-family: var(--font-mono); font-style: normal; font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: #0A0A0A; white-space: nowrap; transform: translateY(-50%); }
+.intro .intro-keys { display: none; color: #0A0A0A; justify-content: flex-start; margin-top: 2rem; }
+@media (max-width: 1000px) { .intro .intro-keys { display: flex; } .intro .container { min-height: 0; } }
+/* Capabilities as a flow: the thread forks into two rails with a node per capability */
+@media (min-width: 901px) {
+  .cap-flow { margin-top: 5rem; }
+  .cap-flow .cap-col { padding-left: 2.75rem; }
+  .cap-flow .cap-row { border-top-color: var(--border); }
+  .cap-flow .cap-row:last-child { border-bottom-color: var(--border); }
+}
+.thread path.branch { stroke: var(--accent); }
+
+/* Rework: pinned bulb panel, heavier thread */
+.intro { height: 230vh; padding: 0; margin-top: clamp(2rem, 4vw, 3rem); position: relative; }
+.intro-pin { position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; align-items: center; }
+.intro-pin > .container { width: 100%; min-height: 0; padding-right: 44%; }
+.intro-headline { font-size: clamp(2.6rem, 7.2vw, 8rem); }
+.bulb { position: absolute; top: 0; right: 14%; height: 100%; aspect-ratio: 400 / 1000; z-index: 1; }
+.bulb svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.bulb-line { fill: none; stroke: var(--accent-deep); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.bulb-head { fill: var(--accent-deep); }
+.bulb-label { position: absolute; left: calc(100% + 0.5rem); transform: translate(-10px, -50%); opacity: 0; font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: #0A0A0A; white-space: nowrap; transition: opacity 0.5s, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.bulb-label.on { opacity: 1; transform: translate(0, -50%); }
+@media (max-width: 1000px) {
+  .intro { height: auto; padding: clamp(4rem, 9vw, 6rem) 0; }
+  .intro-pin { position: static; height: auto; display: block; }
+  .intro-pin > .container { padding-right: var(--gutter); }
+  .bulb { display: none; }
+}
+.thread path { stroke-width: 2; }
+.thread circle.node { stroke-width: 2; }
+@media (min-width: 901px) { .cap-flow { margin-top: 7rem; } }
+
+/* Capabilities orbit: the thread draws one loop; capabilities sit around it */
+.cap-orbit { position: relative; margin-top: 3rem; }
+.orbit-head { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; color: var(--accent); }
+.orbit-item strong { display: block; font-family: var(--font-mono); font-weight: 400; font-size: 1.05rem; letter-spacing: 0.01em; color: var(--text); }
+.orbit-item span { display: block; margin-top: 0.4rem; font-size: 0.82rem; line-height: 1.45; color: var(--text-muted); }
+.orbit-item { transition: opacity 0.5s, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.orbit-core { display: none; }
+/* stacked list (narrow screens, or before the script runs) */
+.cap-orbit:not(.orbit-on) .orbit-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 3rem; grid-auto-flow: column; grid-template-rows: repeat(5, auto); margin-top: 1.25rem; }
+.cap-orbit:not(.orbit-on) .orbit-item { padding: 1rem 0; border-top: 1px solid var(--border-strong); }
+.cap-orbit:not(.orbit-on) { display: grid; grid-template-columns: 1fr 1fr; column-gap: 3rem; }
+.cap-orbit:not(.orbit-on) .orbit-list { grid-column: 1 / -1; }
+@media (max-width: 640px) {
+  .cap-orbit:not(.orbit-on) .orbit-list { grid-template-columns: 1fr; grid-auto-flow: row; grid-template-rows: none; }
+  .cap-orbit:not(.orbit-on) { grid-template-columns: 1fr; }
+  .cap-orbit:not(.orbit-on) .orbit-head[data-side="right"] { display: none; }
+}
+/* orbit (wide screens): everything placed by the script */
+.cap-orbit.orbit-on { height: 660px; }
+.orbit-on .orbit-head { position: absolute; top: 0; margin: 0; }
+.orbit-on .orbit-head[data-side="left"] { left: 16%; }
+.orbit-on .orbit-head[data-side="right"] { right: 16%; }
+.orbit-on .orbit-item { position: absolute; transform: translateY(-0.7rem); opacity: 0.35; }
+.orbit-on .orbit-item.on { opacity: 1; }
+.orbit-on .orbit-item[data-side="left"] { text-align: right; }
+.orbit-on .orbit-core { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -30%); font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); }
+.orbit-on .orbit-core em { font-family: var(--font-serif); font-size: 2.2rem; letter-spacing: -0.01em; text-transform: none; color: var(--text); }
+
+/* Two-line intro headline, smooth bulb, thread in the background */
+.intro-pin > .container { padding-right: 36%; }
+.intro-headline { font-size: clamp(1.7rem, 3.7vw, 4.3rem); line-height: 0.95; }
+.intro-headline span { white-space: nowrap; }
+.intro-headline span:nth-child(even) { padding-left: 0.9em; }
+@media (max-width: 1000px) { .intro-headline { font-size: clamp(1.6rem, 6.4vw, 3.4rem); } }
+@media (max-width: 560px) { .intro-headline span { white-space: normal; } .intro-headline span:nth-child(even) { padding-left: 0; } }
+.bulb { right: 12%; }
+.bulb-ring { stroke-dasharray: 64; stroke-dashoffset: 64; transition: stroke-dashoffset 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.bulb-ring.on { stroke-dashoffset: 0; }
+.thread { z-index: 0; }
+.thread path { stroke-width: 1.5; stroke-linejoin: round; opacity: 0.75; }
+
+/* Archive covers on the Work page: shown, not linked */
+.gallery-static { cursor: default; }
+.gallery-static:hover .gallery-image { border-color: var(--border-strong); }
+.gallery-static:hover .gallery-title { color: var(--text); }
+.gallery-static:hover .gallery-title::after { transform: scaleX(0); }
+
+/* No dates or location shown */
+.exp-item { grid-template-columns: 1fr 1.2fr; }
+@media (max-width: 720px) { .exp-item { grid-template-columns: 1fr; } }
+.contact-methods.two { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 720px) { .contact-methods.two { grid-template-columns: 1fr; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .deck-card { animation: none !important; transform: translate3d(var(--x), var(--y), var(--z)); }
+  .case-shot { transform: none !important; }
+}
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -970,14 +1320,11 @@ a:focus-visible, button:focus-visible {
     <a href="#home" class="nav-logo"><span class="dot"></span> M.HAMZA.KHAN</a>
     <div class="nav-links">
       <a href="#home" data-page="home"><span class="num">01</span>Home</a>
-      <a href="#work" data-page="work"><span class="num">02</span>Work</a>
+      <a href="#about" data-page="about"><span class="num">02</span>About Me</a>
       <a href="#services" data-page="services"><span class="num">03</span>Services</a>
-      <a href="#contact" data-page="contact"><span class="num">04</span>Contact</a>
-    </div>
-    <div class="nav-status">
-      <span class="dot-green"></span>
-      <span>OPEN — FREELANCE / FT</span>
-    </div>
+      <a href="#work" data-page="work"><span class="num">04</span>Work</a>
+      <a href="#contact" data-page="contact"><span class="num">05</span>Contact</a>
+    </div> 
   </div>
 </nav>
 
@@ -992,342 +1339,281 @@ a:focus-visible, button:focus-visible {
     <div class="container">
       <div class="hero-meta">
         <span class="line"></span>
-        <span>PORTFOLIO / 2026</span>
+        <span>PORTFOLIO</span>
         <span>—</span>
         <span>SENIOR PRODUCT DESIGNER</span>
       </div>
 
-      <h1>
-        <span class="block">Designing products</span>
+      <h1 class="hero-display">
+        <span class="block">Designing</span>
+        <span class="block">products</span>
         <span class="block">people <span class="rotator"><span class="rotator-words">
           <span class="rotator-word">love</span>
           <span class="rotator-word">trust</span>
           <span class="rotator-word">need</span>
-        </span></span>.</span>
+        </span></span></span>
       </h1>
-
-      <p class="hero-sub">
-        <!-- ====================================================
-             TO UPDATE: BIO
-             Update the paragraph below when your role, years of
-             experience, or focus changes.
-             ==================================================== -->
-        I'm <strong>Hamza</strong> — a Senior Product Designer with <strong>7+ years</strong> shipping work across <strong>AI, fintech, healthcare, and enterprise SaaS</strong>. Currently leading product design at Cinnova Technologies. I work end-to-end: research and strategy, design systems, prototypes, and the unglamorous fixes that decide whether a product actually ships.
-      </p>
 
       <div class="signature-mark">
         <svg viewBox="0 0 100 100">
           <defs>
             <path id="circle" d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
           </defs>
-          <text font-family="JetBrains Mono" font-size="9" letter-spacing="2" fill="#0A0A0A">
-            <textPath href="#circle">AVAILABLE FOR WORK · 2026 · </textPath>
+          <text font-family="JetBrains Mono" font-size="9" letter-spacing="2" fill="#F2EFE6">
+            <textPath href="#circle">AVAILABLE FOR WORK · OPEN TO PROJECTS · </textPath>
           </text>
         </svg>
         <span class="star">✶</span>
       </div>
 
-      <div class="hero-grid">
-        <!-- ====================================================
-             TO UPDATE: HERO STATS
-             - data-count="7"  → years of experience
-             - data-count="30" → number of projects shipped
-             - data-count="5"  → number of industries
-             The numbers count up from 0 on page load.
-             ==================================================== -->
-        <div class="hero-grid-item">
-          <div class="hero-grid-label">EXPERIENCE</div>
-          <div class="hero-grid-value" data-count="7">0<span class="accent">+</span> <span class="small">years</span></div>
+      <!-- HERO 3D DECK — three of your covers. Swap the image URLs to change them. -->
+      <div class="hero-deck" aria-hidden="true">
+        <div class="deck-stage">
+          <div class="deck-card"><img src="case-studies/img/almana-hospital/thumb.webp" alt="Almana Hospital mockup" /></div>
+          <div class="deck-card"><img src="case-studies/img/trusted-therapist-network/thumb.webp" alt="Trusted Therapist Network mockup" /></div>
+          <div class="deck-card"><img src="case-studies/img/rsi/thumb.webp" alt="Resolution Systems Institute mockup" /></div>
         </div>
-        <div class="hero-grid-item">
-          <div class="hero-grid-label">PROJECTS</div>
-          <div class="hero-grid-value" data-count="30">0<span class="accent">+</span> <span class="small">shipped</span></div>
-        </div>
-        <div class="hero-grid-item">
-          <div class="hero-grid-label">INDUSTRIES</div>
-          <div class="hero-grid-value" data-count="5">0 <span class="small">verticals</span></div>
-        </div>
-        <div class="hero-grid-item">
-          <div class="hero-grid-label">STATUS</div>
-          <div class="hero-grid-value" style="font-size:1rem;">Lahore <span class="live" id="liveTime">—</span></div>
+      </div>
+
+      <div class="hero-foot">
+        <p class="hero-sub">Senior product designer working across <strong>AI, fintech, healthcare and enterprise SaaS</strong>. Working with teams worldwide.</p>
+        <div class="hero-side">
+          <span class="scroll-cue">SCROLL</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Marquee -->
-  <div class="marquee">
-    <div class="marquee-track">
-      <span>AI Products</span><span class="star">✶</span>
-      <span class="accent">Enterprise SaaS</span><span class="star">✶</span>
-      <span>Fintech</span><span class="star">✶</span>
-      <span class="accent">Design Systems</span><span class="star">✶</span>
-      <span>Healthcare</span><span class="star">✶</span>
-      <span class="accent">Mobile Apps</span><span class="star">✶</span>
-      <span>AI Products</span><span class="star">✶</span>
-      <span class="accent">Enterprise SaaS</span><span class="star">✶</span>
-      <span>Fintech</span><span class="star">✶</span>
-      <span class="accent">Design Systems</span><span class="star">✶</span>
-      <span>Healthcare</span><span class="star">✶</span>
-      <span class="accent">Mobile Apps</span><span class="star">✶</span>
+  <!-- Intro statement — ivory panel that holds in place while the thread draws a lightbulb -->
+  <section class="intro" id="idea">
+    <div class="intro-pin">
+      <div class="container">
+        <h2 class="intro-headline"><span>From a fuzzy brief</span><span>to a product that ships.</span></h2>
+        <p class="intro-copy">I treat product design as a <strong>problem-shaping discipline first, a craft second</strong>. That means starting with the user, the data, and the business reality, and only then opening Figma.</p>
+        <ul class="intro-keys"><li>Research</li><li>Systems</li><li>Delivery</li></ul>
+      </div>
+      <div class="bulb" aria-hidden="true">
+        <svg viewBox="0 0 400 1000" preserveAspectRatio="xMidYMin meet">
+          <path class="bulb-line" d="M200 0 L200 250 C290 250 340 330 340 410 C340 480 290 520 250 565 C236 581 232 600 232 630 L232 688 Q232 710 210 710 L200 710 L200 1000" />
+          <path class="bulb-line bulb-side" d="M200 250 C110 250 60 330 60 410 C60 480 110 520 150 565 C164 581 168 600 168 630 L168 688 Q168 710 190 710 L200 710" />
+          <path class="bulb-line bulb-ring" data-y="650" d="M168 650 L232 650" />
+          <path class="bulb-line bulb-ring" data-y="676" d="M168 676 L232 676" />
+          <circle class="bulb-head" r="7" cx="200" cy="0" />
+        </svg>
+        <span class="bulb-label" data-at="0.38" style="top: 41%;">Research</span>
+        <span class="bulb-label" data-at="0.66" style="top: 66%;">Systems</span>
+        <span class="bulb-label" data-at="0.88" style="top: 86%;">Delivery</span>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Featured Work — asymmetric -->
+  <!-- Capabilities -->
+  <section class="section no-border">
+    <div class="container">
+      <div class="section-label reveal">
+        <span class="num">01</span><span>CAPABILITIES</span><span class="line"></span>
+      </div>
+      <h2 class="cap-headline reveal"><span>Product craft.</span><span class="accent">AI in the loop.</span></h2>
+
+      <!-- ====================================================
+           TO UPDATE: CAPABILITIES
+           Each capability is one <div class="orbit-item">: the bold
+           name, then a short line. data-side="left" puts it on the
+           Product Design side, "right" on the AI side. Keep the two
+           sides the same length (five each looks best).
+           ==================================================== -->
+      <div class="cap-orbit">
+        <h3 class="orbit-head" data-side="left">PRODUCT DESIGN</h3>
+        <h3 class="orbit-head" data-side="right">AI-ASSISTED WORKFLOW</h3>
+        <div class="orbit-core" aria-hidden="true"><span>One practice</span><em>design + AI</em></div>
+        <div class="orbit-list">
+          <div class="orbit-item" data-side="left"><strong>Product Strategy</strong><span>Find the problem worth solving.</span></div>
+          <div class="orbit-item" data-side="left"><strong>UX Research</strong><span>Listen to users before deciding.</span></div>
+          <div class="orbit-item" data-side="left"><strong>Interaction Design</strong><span>Flows and screens that read at a glance.</span></div>
+          <div class="orbit-item" data-side="left"><strong>Design Systems</strong><span>One language across every screen.</span></div>
+          <div class="orbit-item" data-side="left"><strong>Analytics</strong><span>Let usage data pick the next fix.</span></div>
+          <div class="orbit-item" data-side="right"><strong>AI Product UX</strong><span>Interfaces that make AI output usable.</span></div>
+          <div class="orbit-item" data-side="right"><strong>UX Pilot</strong><span>AI-generated starting points for flows.</span></div>
+          <div class="orbit-item" data-side="right"><strong>Claude + Figma</strong><span>Faster iteration on content and structure.</span></div>
+          <div class="orbit-item" data-side="right"><strong>Rapid Exploration</strong><span>More directions tested before committing.</span></div>
+          <div class="orbit-item" data-side="right"><strong>Judgment</strong><span>The taste and the decisions stay with me.</span></div>
+        </div>
+      </div>
+      <div class="work-cta cap-more reveal">
+        <span>→ How I package this for teams:</span>
+        <a href="#services">See services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
   <section class="section">
     <div class="container">
       <div class="section-label reveal">
-        <span class="num">01</span><span>FEATURED WORK</span><span class="line"></span><span>2022 — 2026</span>
+        <span class="num">02</span><span>PROCESS</span><span class="line"></span>
       </div>
-      <h2 class="section-title reveal">A few projects I'm <span class="serif">proud of</span>.</h2>
-
-      <!-- ============================================================
-           ADD NEW CASE STUDY (HOMEPAGE — FEATURED WORK)
-           ============================================================
-           This is the asymmetric featured grid on the HOMEPAGE.
-           Shows your top 4 projects only. To add more, see the WORK
-           page below (search: "ADD NEW CASE STUDY (WORK PAGE)").
-
-           To REPLACE one of these 4, edit the existing card.
-           To ADD a new one, copy an entire <a class="gallery-item">…</a>
-           block and change these 6 fields:
-
-             1. href="..."             → Behance project URL
-             2. <img src="..."         → Behance cover image URL
-             3. alt="..."              → image description
-             4. <span class="gallery-num">…</span>   → e.g. "005"
-             5. category line and year inside <div class="gallery-meta">
-             6. <h3 class="gallery-title">…</h3>     → project title
-                <p class="gallery-desc">…</p>        → 1–2 sentence summary
-                <span class="gallery-tag">…</span>   → 2–3 tags
-
-           NOTE: The first card is full-width (hero card).
-                 The 4th card is a horizontal split (image + text side by side).
-                 If reordering, keep these in mind.
-
-           To get the cover image URL: open your project on Behance,
-           right-click the cover image, "Copy image address".
-           ============================================================ -->
-      <div class="gallery-asymmetric">
-
-        <!-- CASE STUDY 001 — full-width hero card -->
-        <a href="https://www.behance.net/gallery/211375135/AI-Summarizing-Platform" target="_blank" rel="noopener noreferrer" class="gallery-item reveal">
-          <div class="gallery-image">
-            <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808/4df352211375135.Y3JvcCwyNDc4LDE5MzgsMCww.png" alt="AI Summarization Platform" loading="lazy" />
-            <div class="gallery-overlay"><span class="gallery-num">001</span><span class="gallery-arrow">↗</span></div>
-            <span class="gallery-cta">VIEW CASE STUDY →</span>
-          </div>
-          <div class="gallery-meta"><span>AI / ENTERPRISE SAAS</span><span class="dot-sep"></span><span>2024</span><span class="dot-sep"></span><span>FEATURED</span></div>
-          <h3 class="gallery-title">AI Summarization Platform</h3>
-          <p class="gallery-desc" style="max-width: 700px;">An AI-powered platform that turns long documents into structured, scannable summaries. Designed for enterprise teams who need signal from noise — including streaming UX, confidence states, and editable structured output.</p>
-          <div class="gallery-tags"><span class="gallery-tag">AI Product</span><span class="gallery-tag">B2B SaaS</span><span class="gallery-tag">Web</span></div>
-        </a>
-
-        <!-- CASE STUDY 002 — left of 2-up row (regular size) -->
-        <a href="https://www.behance.net/gallery/177189563/Regulatory-Compliance-Management-System" target="_blank" rel="noopener noreferrer" class="gallery-item reveal">
-          <div class="gallery-image">
-            <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808/db36ed177189563.Y3JvcCw0MTQyLDMyNDAsMCww.png" alt="Regulatory Compliance" loading="lazy" />
-            <div class="gallery-overlay"><span class="gallery-num">002</span><span class="gallery-arrow">↗</span></div>
-            <span class="gallery-cta">VIEW CASE STUDY →</span>
-          </div>
-          <div class="gallery-meta"><span>B2B / ENTERPRISE</span><span class="dot-sep"></span><span>2023</span></div>
-          <h3 class="gallery-title">Regulatory Compliance System</h3>
-          <p class="gallery-desc">A complex enterprise tool for tracking compliance across regulations, audits, and documentation.</p>
-          <div class="gallery-tags"><span class="gallery-tag">Complex SaaS</span><span class="gallery-tag">Dashboards</span></div>
-        </a>
-
-        <!-- CASE STUDY 003 — right of 2-up row, offset 5rem down for asymmetry -->
-        <a href="https://www.behance.net/gallery/196338243/Loan-Services-and-Accounting" target="_blank" rel="noopener noreferrer" class="gallery-item reveal">
-          <div class="gallery-image">
-            <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808/842500196338243.Y3JvcCwxMTUwLDkwMCwxNDUsMA.png" alt="Loan Services" loading="lazy" />
-            <div class="gallery-overlay"><span class="gallery-num">003</span><span class="gallery-arrow">↗</span></div>
-            <span class="gallery-cta">VIEW CASE STUDY →</span>
-          </div>
-          <div class="gallery-meta"><span>FINTECH / WEB</span><span class="dot-sep"></span><span>2024</span></div>
-          <h3 class="gallery-title">Loan Services &amp; Accounting</h3>
-          <p class="gallery-desc">A fintech platform for loan origination and accounting workflows.</p>
-          <div class="gallery-tags"><span class="gallery-tag">Fintech</span><span class="gallery-tag">Data Viz</span></div>
-        </a>
-
-        <!-- CASE STUDY 004 — full-width horizontal split (image + text side by side) -->
-        <a href="https://www.behance.net/gallery/153155971/Patient-App-Design" target="_blank" rel="noopener noreferrer" class="gallery-item reveal">
-          <div class="gallery-image">
-            <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808/66751a153155971.Y3JvcCwxNjgyLDEzMTUsMCww.png" alt="Patient App" loading="lazy" />
-            <div class="gallery-overlay"><span class="gallery-num">004</span><span class="gallery-arrow">↗</span></div>
-            <span class="gallery-cta">VIEW CASE STUDY →</span>
-          </div>
-          <div class="gallery-content">
-            <div class="gallery-meta"><span>HEALTHCARE / MOBILE</span><span class="dot-sep"></span><span>2022</span></div>
-            <h3 class="gallery-title">Patient Care App</h3>
-            <p class="gallery-desc">A mobile experience for patients to manage appointments, records, and provider communication. Healthcare UX that prioritizes calm over clutter.</p>
-            <div class="gallery-tags"><span class="gallery-tag">iOS / Android</span><span class="gallery-tag">UX Research</span><span class="gallery-tag">Mobile</span></div>
-          </div>
-        </a>
+      <h2 class="section-title stepped reveal"><span class="step">Understand first.</span><span class="step">Then design,</span><span class="step">test and <span class="serif">ship</span>.</span></h2>
+      <p class="process-lead reveal">Every project runs through the same four phases. The depth of each one changes with the project; the order does not.</p>
+      <div class="process">
+        <div class="process-step reveal"><div class="step-num">PHASE 01</div><div class="step-title">Discover</div><div class="step-desc">User interviews, competitive teardowns, business goals, technical constraints. Define the actual problem before drawing anything.</div></div>
+        <div class="process-step reveal"><div class="step-num">PHASE 02</div><div class="step-title">Design</div><div class="step-desc">Architecture, flows, wireframes, then high-fidelity. Multiple directions early; conviction by the end. Built on a system from day one.</div></div>
+        <div class="process-step reveal"><div class="step-num">PHASE 03</div><div class="step-title">Validate</div><div class="step-desc">Prototype testing with real users, stakeholder reviews, and engineering feasibility checks. Iterate before code, not after.</div></div>
+        <div class="process-step reveal"><div class="step-num">PHASE 04</div><div class="step-title">Ship</div><div class="step-desc">Detailed specs, design QA during build, post-launch usage review. Designs aren't done at handoff — they're done when they work.</div></div>
       </div>
+    </div>
+  </section>
 
+  <!-- Featured Work — full-width case panels -->
+  <section class="section cases-intro">
+    <div class="container">
+      <div class="section-label reveal">
+        <span class="num">03</span><span>PROJECTS</span><span class="line"></span>
+      </div>
+      <h2 class="section-title stepped reveal"><span class="step">A few projects</span><span class="step">I'm <span class="serif">proud of</span>.</span></h2>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ADD NEW CASE STUDY (HOMEPAGE — FEATURED WORK)
+       ============================================================
+       Each featured project is one full-width panel: an
+       <a class="case dark"> or <a class="case light"> block.
+       Panels alternate dark / light. To add or replace one, copy a
+       whole panel and change:
+
+         1. class="case dark" or "case light"  (alternate them;
+            dark panels also carry data-light-cursor)
+         2. href="..."        → the case study page (case-studies/….html)
+         3. <b>01</b> / ...   → number, category and year
+         4. <p>…</p>          → one-sentence summary
+         5. case-name         → ONE short word, 10 letters or fewer,
+                                shown very large (e.g. "Lending")
+         6. <img src="..."    → mockup image (case-studies/img/…/thumb.webp)
+         7. case-foot .tags   → full project title and tags
+
+       To get the cover image URL: open your Behance profile,
+       right-click the project cover, "Copy image address".
+       ============================================================ -->
+
+  <!-- CASE PANEL 01 — Resolution Systems Institute -->
+  <a class="case dark" href="case-studies/rsi.html" data-light-cursor>
+    <div class="container">
+      <div class="case-top">
+        <span class="idx"><b>01</b> / Legal · Tablet app</span>
+        <p>A tablet app that helps mediators and RSI staff run a case and record each mediation session while it is happening.</p>
+      </div>
+      <div class="case-name" aria-hidden="true">Mediation</div>
+      <div class="case-shot"><img src="case-studies/img/rsi/thumb.webp" alt="Resolution Systems Institute mockup" loading="lazy" /></div>
+      <div class="case-foot">
+        <span class="tags">Resolution Systems Institute — UX case study · Tablet app</span>
+        <span class="case-link">Read case study<i>→</i></span>
+      </div>
+    </div>
+  </a>
+
+  <!-- CASE PANEL 02 — Trusted Therapist Network -->
+  <a class="case light" href="case-studies/trusted-therapist-network.html">
+    <div class="container">
+      <div class="case-top">
+        <span class="idx"><b>02</b> / Healthcare · Web app</span>
+        <p>A referral-first professional network where therapists connect with the providers they and their peers already trust.</p>
+      </div>
+      <div class="case-name" aria-hidden="true">Therapists</div>
+      <div class="case-shot"><img src="case-studies/img/trusted-therapist-network/thumb.webp" alt="Trusted Therapist Network mockup" loading="lazy" /></div>
+      <div class="case-foot">
+        <span class="tags">Trusted Therapist Network — UX case study · Web app</span>
+        <span class="case-link">Read case study<i>→</i></span>
+      </div>
+    </div>
+  </a>
+
+  <!-- CASE PANEL 03 — Engaged Scholar -->
+  <a class="case dark" href="case-studies/engaged-scholar.html" data-light-cursor>
+    <div class="container">
+      <div class="case-top">
+        <span class="idx"><b>03</b> / AI · Web and mobile</span>
+        <p>Reimagining the Engaged Scholar platform for web and mobile.</p>
+      </div>
+      <div class="case-name" aria-hidden="true">Scholar</div>
+      <div class="case-shot"><img src="case-studies/img/engaged-scholar/thumb.webp" alt="Engaged Scholar mockup" loading="lazy" /></div>
+      <div class="case-foot">
+        <span class="tags">Engaged Scholar — UX case study · Web and mobile</span>
+        <span class="case-link">Read case study<i>→</i></span>
+      </div>
+    </div>
+  </a>
+
+  <!-- CASE PANEL 04 — Score Funder -->
+  <a class="case light" href="case-studies/score-funder.html">
+    <div class="container">
+      <div class="case-top">
+        <span class="idx"><b>04</b> / Sports · Mobile app</span>
+        <p>Reimagining the ScoreFunder platform as a mobile app for fans of collegiate and high school sports.</p>
+      </div>
+      <div class="case-name" aria-hidden="true">Score</div>
+      <div class="case-shot"><img src="case-studies/img/score-funder/thumb.webp" alt="Score Funder mockup" loading="lazy" /></div>
+      <div class="case-foot">
+        <span class="tags">Score Funder — UX case study · Mobile app</span>
+        <span class="case-link">Read case study<i>→</i></span>
+      </div>
+    </div>
+  </a>
+
+  <!-- CASE PANEL 05 — Almana Hospital -->
+  <a class="case dark" href="case-studies/almana-hospital.html" data-light-cursor>
+    <div class="container">
+      <div class="case-top">
+        <span class="idx"><b>05</b> / Healthcare · Mobile app</span>
+        <p>A patient app for viewing medical records, booking doctor’s appointments and quick check-ins, requesting medication refills and seeing lab and radiology results.</p>
+      </div>
+      <div class="case-name" aria-hidden="true">Almana</div>
+      <div class="case-shot"><img src="case-studies/img/almana-hospital/thumb.webp" alt="Almana Hospital mockup" loading="lazy" /></div>
+      <div class="case-foot">
+        <span class="tags">Almana Hospital — UX/UI case study · Mobile app</span>
+        <span class="case-link">Read case study<i>→</i></span>
+      </div>
+    </div>
+  </a>
+
+  <!-- CASE PANEL 06 — Keyki -->
+  <a class="case light" href="case-studies/keyki.html">
+    <div class="container">
+      <div class="case-top">
+        <span class="idx"><b>06</b> / E-commerce · Mobile and web</span>
+        <p>A video-first shopping platform for Pakistan, where people discover products through short videos, book personal video messages from their favourite stars and check out in a few taps.</p>
+      </div>
+      <div class="case-name" aria-hidden="true">Keyki</div>
+      <div class="case-shot"><img src="case-studies/img/keyki/thumb.webp" alt="Keyki mockup" loading="lazy" /></div>
+      <div class="case-foot">
+        <span class="tags">Keyki — UX case study · Mobile app &amp; website</span>
+        <span class="case-link">Read case study<i>→</i></span>
+      </div>
+    </div>
+  </a>
+
+  <section class="cases-outro">
+    <div class="container">
       <div class="work-cta reveal">
         <span>→ Want the full archive?</span>
-        <a href="#work">See all work</a>
+        <a href="#work">See all 24 projects</a>
       </div>
     </div>
   </section>
 
-  <!-- Stat Takeover — coral panel -->
-  <section class="stat-takeover" data-light-cursor>
-    <div class="container">
-      <div class="stat-takeover-label reveal">/ SEVEN YEARS IN</div>
-      <h2 class="stat-takeover-headline reveal">
-        I help teams ship products that <span class="serif">actually</span> get used.
-      </h2>
-      <div class="stat-takeover-grid">
-        <div class="stat-takeover-item reveal">
-          <div class="stat-takeover-num">7+</div>
-          <div class="stat-takeover-text">YEARS DESIGNING</div>
-        </div>
-        <div class="stat-takeover-item reveal">
-          <div class="stat-takeover-num">30+</div>
-          <div class="stat-takeover-text">PROJECTS SHIPPED</div>
-        </div>
-        <div class="stat-takeover-item reveal">
-          <div class="stat-takeover-num">5</div>
-          <div class="stat-takeover-text">INDUSTRIES SERVED</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Approach -->
-  <section class="section">
+  <!-- About teaser -->
+  <section class="section about-teaser" style="margin-top: clamp(4rem, 8vw, 7rem);">
     <div class="container">
       <div class="section-label reveal">
-        <span class="num">02</span><span>APPROACH</span><span class="line"></span>
+        <span class="num">04</span><span>ABOUT</span><span class="line"></span>
       </div>
-      <h2 class="section-title reveal">Strategy without screens is theory. <span class="serif">I do both.</span></h2>
-
-      <div class="approach-grid">
-        <div class="approach-lead reveal">
-          <em>"Senior product design</em> isn't about pushing pixels faster — it's about asking better questions earlier.<em>"</em>
+      <p class="about-statement reveal">Senior product design isn't about pushing pixels faster. It's about <span class="serif">asking better questions</span> earlier.</p>
+      <div class="about-teaser-row">
+        <p class="about-bio reveal">I'm <strong>Hamza</strong> — a Senior Product Designer with <strong>7+ years</strong> shipping work across <strong>AI, fintech, healthcare, and enterprise SaaS</strong>. Currently leading product design at Cinnova Technologies. I work end-to-end: research and strategy, design systems, prototypes, and the unglamorous fixes that decide whether a product actually ships.</p>
+        <div class="about-sign reveal">
+          <span class="sign-name">Muhammad Hamza Khan</span>
+          <span class="sign-role">Senior Product Designer.</span>
+          <a href="#about" class="btn">More about me <span class="arrow">→</span></a>
         </div>
-        <div class="approach-body reveal">
-          <p>I treat product design as a <strong>problem-shaping discipline first, a craft second</strong>. That means starting with the user, the data, and the business reality — and only then opening Figma.</p>
-          <p>I work with AI in my workflow — for rapid divergent exploration, design system upkeep, and the boring 30% of the job that used to eat days. <strong>The judgment, the taste, and the accountability stay with me</strong>.</p>
-          <p>Across seven years, four companies, and three industries, the through-line has been the same: <strong>clear hierarchy, honest copy, systems that scale, and interfaces that respect the user's time</strong>.</p>
-        </div>
-      </div>
-
-      <div class="principles">
-        <div class="principle reveal">
-          <div class="principle-num">001 — DISCOVER</div>
-          <div class="principle-title">Research before pixels.</div>
-          <div class="principle-desc">Strong opinions about what users want are mostly wrong. Talk to them. Watch them. Then design.</div>
-        </div>
-        <div class="principle reveal">
-          <div class="principle-num">002 — SYSTEMS</div>
-          <div class="principle-title">Systems over screens.</div>
-          <div class="principle-desc">A great screen is easy. A coherent product across 200 screens is the actual job.</div>
-        </div>
-        <div class="principle reveal">
-          <div class="principle-num">003 — MEASURE</div>
-          <div class="principle-title">Ship, measure, repeat.</div>
-          <div class="principle-desc">The first version is rarely right. The third one usually is — but only if you measure honestly.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience -->
-  <section class="section">
-    <div class="container">
-      <div class="section-label reveal">
-        <span class="num">03</span><span>EXPERIENCE</span><span class="line"></span>
-      </div>
-      <h2 class="section-title reveal">Seven years. <span class="serif">Four teams.</span></h2>
-
-      <div class="experience-list">
-        <!-- ====================================================
-             TO UPDATE: CURRENT ROLE
-             When you change jobs, update the FIRST exp-item
-             below: dates, role title, company, description.
-             To add a new role, copy any exp-item block above
-             the others and update its content.
-             To remove the divider/education entry, search:
-             "+ EDUCATION"
-             ==================================================== -->
-        <div class="exp-item reveal">
-          <div class="exp-date">JAN 2023 — PRESENT</div>
-          <div>
-            <div class="exp-role">Senior User Experience Designer</div>
-            <div class="exp-company">CINNOVA TECHNOLOGIES — LAHORE</div>
-          </div>
-          <div class="exp-desc">Leading product design across multiple client engagements. Owning research, design systems, and end-to-end UX for B2B SaaS, AI, and consumer products.</div>
-        </div>
-        <div class="exp-item reveal">
-          <div class="exp-date">JAN 2021 — DEC 2022</div>
-          <div>
-            <div class="exp-role">Senior UI/UX Designer</div>
-            <div class="exp-company">PIKESSOFT — LAHORE</div>
-          </div>
-          <div class="exp-desc">Owned design across web and mobile products. Partnered with stakeholders to translate fuzzy requirements into shipped interfaces.</div>
-        </div>
-        <div class="exp-item reveal">
-          <div class="exp-date">AUG 2019 — DEC 2020</div>
-          <div>
-            <div class="exp-role">UI/UX Designer</div>
-            <div class="exp-company">CODEBUILDERS — LAHORE</div>
-          </div>
-          <div class="exp-desc">Built and maintained design systems, style guides, and component libraries across cross-functional teams shipping responsive, consistent products.</div>
-        </div>
-        <div class="exp-item reveal">
-          <div class="exp-date">DEC 2018 — JUL 2019</div>
-          <div>
-            <div class="exp-role">Assistant Team Lead</div>
-            <div class="exp-company">GAME DISTRICT — LAHORE</div>
-          </div>
-          <div class="exp-desc">Coordinated between design, art, development, and QA teams. Project planning, milestone tracking, storyboarding alignment.</div>
-        </div>
-
-        <div class="exp-divider reveal">
-          <span>+ EDUCATION</span>
-          <span class="line"></span>
-        </div>
-
-        <div class="exp-item reveal">
-          <div class="exp-date">2014 — 2018</div>
-          <div>
-            <div class="exp-role">B.S. Information Technology</div>
-            <div class="exp-company">BAHRIA UNIVERSITY — LAHORE</div>
-          </div>
-          <div class="exp-desc">Foundation in software, systems, and human–computer interaction.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Credentials -->
-  <section class="section">
-    <div class="container">
-      <div class="section-label reveal">
-        <span class="num">04</span><span>CREDENTIALS</span><span class="line"></span>
-      </div>
-      <h2 class="section-title reveal">Continuous <span class="serif">learning.</span></h2>
-
-      <div class="cert-grid">
-        <!-- ====================================================
-             ADD NEW CERTIFICATION
-             Copy any <div class="cert-item">…</div> block and
-             update the issuer, name, and date.
-             Order by date (newest at top).
-             ==================================================== -->
-        <div class="cert-item reveal"><div class="cert-issuer">PRODUCT SCHOOL</div><div class="cert-name">Product Strategy — Micro-Certification</div><div class="cert-date">DEC 2024</div></div>
-        <div class="cert-item reveal"><div class="cert-issuer">PRODUCT SCHOOL</div><div class="cert-name">Product Discovery — Micro-Certification</div><div class="cert-date">DEC 2024</div></div>
-        <div class="cert-item reveal"><div class="cert-issuer">PRODUCT SCHOOL</div><div class="cert-name">Product Analytics — Micro-Certification</div><div class="cert-date">MAR 2025</div></div>
-        <div class="cert-item reveal"><div class="cert-issuer">COURSERA — GOOGLE</div><div class="cert-name">Foundations of User Experience (UX) Design</div><div class="cert-date">FEB 2024</div></div>
-        <div class="cert-item reveal"><div class="cert-issuer">COURSERA — GOOGLE</div><div class="cert-name">Start the UX Design Process: Empathize, Define, Ideate</div><div class="cert-date">MAR 2025</div></div>
-        <div class="cert-item reveal"><div class="cert-issuer">COURSERA — GOOGLE</div><div class="cert-name">Build Wireframes and Low-Fidelity Prototypes</div><div class="cert-date">MAR 2025</div></div>
-        <div class="cert-item reveal"><div class="cert-issuer">COURSERA — GOOGLE</div><div class="cert-name">Conduct UX Research and Test Early Concepts</div><div class="cert-date">APR 2025</div></div>
-        <div class="cert-item reveal"><div class="cert-issuer">COURSERA — GOOGLE</div><div class="cert-name">Create High-Fidelity Designs and Prototypes in Figma</div><div class="cert-date">MAY 2025</div></div>
-        <div class="cert-item reveal"><div class="cert-issuer">COURSERA — GOOGLE</div><div class="cert-name">Build Dynamic User Interfaces (UI) for Websites</div><div class="cert-date">JUN 2025</div></div>
-        <div class="cert-item reveal"><div class="cert-issuer">COURSERA — GOOGLE</div><div class="cert-name">Design a UX for Social Good &amp; Prepare for Jobs</div><div class="cert-date">AUG 2025</div></div>
       </div>
     </div>
   </section>
@@ -1336,12 +1622,12 @@ a:focus-visible, button:focus-visible {
   <section class="cta-section">
     <div class="container">
       <div class="section-label reveal">
-        <span class="num">05</span><span>NEXT</span><span class="line"></span>
+        <span class="num">05</span><span>CONTACT</span><span class="line"></span>
       </div>
       <h2 class="cta-headline reveal">Have a problem worth <span class="serif">solving?</span> Let's talk.</h2>
       <div class="contact-actions reveal">
-        <a href="#contact" class="btn primary">Get in touch <span class="arrow">↗</span></a>
-        <a href="#services" class="btn">See services <span class="arrow">→</span></a>
+        <a href="mailto:hamzakhan11139@gmail.com" class="btn primary">Let's talk <span class="arrow">↗</span></a>
+        <a href="#contact" class="btn">All contact details <span class="arrow">→</span></a>
       </div>
     </div>
   </section>
@@ -1357,7 +1643,7 @@ a:focus-visible, button:focus-visible {
     <div class="container">
       <div class="page-meta reveal">
         <span class="line"></span>
-        <span>WORK ARCHIVE / 2026</span>
+        <span>WORK ARCHIVE</span>
         <span>—</span>
         <span>SELECTED CASE STUDIES</span>
       </div>
@@ -1365,7 +1651,7 @@ a:focus-visible, button:focus-visible {
         <span class="block">All projects.</span>
         <span class="block"><span class="serif">One place.</span></span>
       </h1>
-      <p class="page-header-sub">A curated archive of work across <strong>AI, fintech, healthcare, e-commerce, and enterprise SaaS</strong>. Click any project to view the full case study on Behance.</p>
+      <p class="page-header-sub">A curated archive of work across <strong>AI, fintech, healthcare, legal, e-commerce, and enterprise SaaS</strong>. The first six open as full case studies; the rest are shown as covers.</p>
 
       <div class="page-stats">
         <div class="page-stats-item"><div class="page-stats-label">PROJECTS SHIPPED</div><div class="page-stats-value">30<span class="accent">+</span></div></div>
@@ -1379,59 +1665,87 @@ a:focus-visible, button:focus-visible {
   <!-- Featured (asymmetric) -->
   <section class="section no-border">
     <div class="container">
-      <div class="section-label reveal"><span class="num">01</span><span>FEATURED CASE STUDIES</span><span class="line"></span></div>
-      <h2 class="section-title reveal">The work I'm most <span class="serif">proud of</span>.</h2>
+      <div class="section-label reveal"><span class="num">01</span><span>IN-DEPTH CASE STUDIES</span><span class="line"></span></div>
+      <h2 class="section-title reveal">Six projects, <span class="serif">start to finish</span>.</h2>
 
+      <!-- ============================================================
+           ADD NEW CASE STUDY (WORK PAGE — IN-DEPTH CASE STUDIES)
+           These cards open pages inside the site (case-studies/…html).
+           Thumbnails are the mockups in case-studies/img/<name>/thumb.webp
+           ============================================================ -->
       <div class="gallery-asymmetric">
-        <a href="https://www.behance.net/gallery/211375135/AI-Summarizing-Platform" target="_blank" rel="noopener noreferrer" class="gallery-item reveal">
+        <a href="case-studies/rsi.html" class="gallery-item reveal">
           <div class="gallery-image">
-            <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808/4df352211375135.Y3JvcCwyNDc4LDE5MzgsMCww.png" alt="AI Summarization Platform" loading="lazy" />
-            <div class="gallery-overlay"><span class="gallery-num">001</span><span class="gallery-arrow">↗</span></div>
-            <span class="gallery-cta">VIEW CASE STUDY →</span>
+            <img src="case-studies/img/rsi/thumb.webp" alt="Resolution Systems Institute mockup" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-num">001</span><span class="gallery-arrow">→</span></div>
+            <span class="gallery-cta">READ CASE STUDY →</span>
           </div>
-          <div class="gallery-meta"><span>AI / ENTERPRISE SAAS</span><span class="dot-sep"></span><span>2024</span></div>
-          <h3 class="gallery-title">AI Summarization Platform</h3>
-          <p class="gallery-desc">An AI-powered platform that turns long documents into structured, scannable summaries. Designed for enterprise teams who need signal from noise.</p>
-          <div class="gallery-tags"><span class="gallery-tag">AI Product</span><span class="gallery-tag">Web App</span><span class="gallery-tag">B2B</span></div>
+          <div class="gallery-meta"><span>LEGAL · TABLET APP</span></div>
+          <h3 class="gallery-title">Resolution Systems Institute</h3>
+          <p class="gallery-desc">A tablet app that helps mediators and RSI staff run a case and record each mediation session while it is happening.</p>
+          <div class="gallery-tags"><span class="gallery-tag">UX case study</span><span class="gallery-tag">Tablet app</span></div>
         </a>
 
-        <a href="https://www.behance.net/gallery/177189563/Regulatory-Compliance-Management-System" target="_blank" rel="noopener noreferrer" class="gallery-item reveal">
+        <a href="case-studies/trusted-therapist-network.html" class="gallery-item reveal">
           <div class="gallery-image">
-            <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808/db36ed177189563.Y3JvcCw0MTQyLDMyNDAsMCww.png" alt="Regulatory Compliance" loading="lazy" />
-            <div class="gallery-overlay"><span class="gallery-num">002</span><span class="gallery-arrow">↗</span></div>
-            <span class="gallery-cta">VIEW CASE STUDY →</span>
+            <img src="case-studies/img/trusted-therapist-network/thumb.webp" alt="Trusted Therapist Network mockup" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-num">002</span><span class="gallery-arrow">→</span></div>
+            <span class="gallery-cta">READ CASE STUDY →</span>
           </div>
-          <div class="gallery-meta"><span>B2B / ENTERPRISE</span><span class="dot-sep"></span><span>2023</span></div>
-          <h3 class="gallery-title">Regulatory Compliance System</h3>
-          <p class="gallery-desc">A complex enterprise tool for tracking compliance across regulations, audits, and documentation — designed for clarity in a high-stakes domain.</p>
-          <div class="gallery-tags"><span class="gallery-tag">Complex SaaS</span><span class="gallery-tag">Dashboards</span></div>
+          <div class="gallery-meta"><span>HEALTHCARE · WEB APP</span></div>
+          <h3 class="gallery-title">Trusted Therapist Network</h3>
+          <p class="gallery-desc">A referral-first professional network where therapists connect with the providers they and their peers already trust.</p>
+          <div class="gallery-tags"><span class="gallery-tag">UX case study</span><span class="gallery-tag">Web app</span></div>
         </a>
 
-        <a href="https://www.behance.net/gallery/196338243/Loan-Services-and-Accounting" target="_blank" rel="noopener noreferrer" class="gallery-item reveal">
+        <a href="case-studies/engaged-scholar.html" class="gallery-item reveal">
           <div class="gallery-image">
-            <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808/842500196338243.Y3JvcCwxMTUwLDkwMCwxNDUsMA.png" alt="Loan Services" loading="lazy" />
-            <div class="gallery-overlay"><span class="gallery-num">003</span><span class="gallery-arrow">↗</span></div>
-            <span class="gallery-cta">VIEW CASE STUDY →</span>
+            <img src="case-studies/img/engaged-scholar/thumb.webp" alt="Engaged Scholar mockup" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-num">003</span><span class="gallery-arrow">→</span></div>
+            <span class="gallery-cta">READ CASE STUDY →</span>
           </div>
-          <div class="gallery-meta"><span>FINTECH / WEB</span><span class="dot-sep"></span><span>2024</span></div>
-          <h3 class="gallery-title">Loan Services &amp; Accounting</h3>
-          <p class="gallery-desc">A fintech platform for loan origination and accounting workflows. Dashboards, data tables, and the operational rigor financial products demand.</p>
-          <div class="gallery-tags"><span class="gallery-tag">Fintech</span><span class="gallery-tag">Data Viz</span></div>
+          <div class="gallery-meta"><span>AI · WEB AND MOBILE</span></div>
+          <h3 class="gallery-title">Engaged Scholar</h3>
+          <p class="gallery-desc">Reimagining the Engaged Scholar platform for web and mobile.</p>
+          <div class="gallery-tags"><span class="gallery-tag">UX case study</span><span class="gallery-tag">Web and mobile</span></div>
         </a>
 
-        <a href="https://www.behance.net/gallery/153155971/Patient-App-Design" target="_blank" rel="noopener noreferrer" class="gallery-item reveal">
+        <a href="case-studies/score-funder.html" class="gallery-item reveal">
           <div class="gallery-image">
-            <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808/66751a153155971.Y3JvcCwxNjgyLDEzMTUsMCww.png" alt="Patient App" loading="lazy" />
-            <div class="gallery-overlay"><span class="gallery-num">004</span><span class="gallery-arrow">↗</span></div>
-            <span class="gallery-cta">VIEW CASE STUDY →</span>
+            <img src="case-studies/img/score-funder/thumb.webp" alt="Score Funder mockup" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-num">004</span><span class="gallery-arrow">→</span></div>
+            <span class="gallery-cta">READ CASE STUDY →</span>
           </div>
-          <div class="gallery-content">
-            <div class="gallery-meta"><span>HEALTHCARE / MOBILE</span><span class="dot-sep"></span><span>2022</span></div>
-            <h3 class="gallery-title">Patient Care App</h3>
-            <p class="gallery-desc">A mobile experience for patients to manage appointments, records, and provider communication. Healthcare UX that prioritizes calm over clutter.</p>
-            <div class="gallery-tags"><span class="gallery-tag">iOS &amp; Android</span><span class="gallery-tag">User Research</span></div>
-          </div>
+          <div class="gallery-meta"><span>SPORTS · MOBILE APP</span></div>
+          <h3 class="gallery-title">Score Funder</h3>
+          <p class="gallery-desc">Reimagining the ScoreFunder platform as a mobile app for fans of collegiate and high school sports.</p>
+          <div class="gallery-tags"><span class="gallery-tag">UX case study</span><span class="gallery-tag">Mobile app</span></div>
         </a>
+
+        <a href="case-studies/almana-hospital.html" class="gallery-item reveal">
+          <div class="gallery-image">
+            <img src="case-studies/img/almana-hospital/thumb.webp" alt="Almana Hospital mockup" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-num">005</span><span class="gallery-arrow">→</span></div>
+            <span class="gallery-cta">READ CASE STUDY →</span>
+          </div>
+          <div class="gallery-meta"><span>HEALTHCARE · MOBILE APP</span></div>
+          <h3 class="gallery-title">Almana Hospital</h3>
+          <p class="gallery-desc">A patient app for viewing medical records, booking doctor’s appointments and quick check-ins, requesting medication refills and seeing lab and radiology results.</p>
+          <div class="gallery-tags"><span class="gallery-tag">UX/UI case study</span><span class="gallery-tag">Mobile app</span></div>
+        </a>
+
+        <a href="case-studies/keyki.html" class="gallery-item reveal">
+          <div class="gallery-image">
+            <img src="case-studies/img/keyki/thumb.webp" alt="Keyki mockup" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-num">006</span><span class="gallery-arrow">→</span></div>
+            <span class="gallery-cta">READ CASE STUDY →</span>
+          </div>
+          <div class="gallery-meta"><span>E-COMMERCE · MOBILE AND WEB</span></div>
+          <h3 class="gallery-title">Keyki</h3>
+          <p class="gallery-desc">A video-first shopping platform for Pakistan, where people discover products through short videos, book personal video messages from their favourite stars and check out in a few taps.</p>
+          <div class="gallery-tags"><span class="gallery-tag">UX case study</span><span class="gallery-tag">Mobile app &amp; website</span></div>
+        </a>
+
       </div>
     </div>
   </section>
@@ -1440,7 +1754,7 @@ a:focus-visible, button:focus-visible {
   <section class="section">
     <div class="container">
       <div class="section-label reveal"><span class="num">02</span><span>MORE WORK</span><span class="line"></span></div>
-      <h2 class="section-title reveal">Earlier and <span class="serif">supporting</span> work.</h2>
+      <h2 class="section-title reveal">More projects from the <span class="serif">archive</span>.</h2>
 
       <!-- ============================================================
            ADD NEW CASE STUDY (WORK PAGE — MORE WORK GRID)
@@ -1455,7 +1769,7 @@ a:focus-visible, button:focus-visible {
                 - href="..."          (Behance project URL)
                 - <img src="..."      (Behance cover image URL)
                 - alt="..."           (image description)
-                - gallery-num         (e.g. 011, 012…)
+                - gallery-num         (e.g. 023, 024…)
                 - gallery-meta        (category, year)
                 - gallery-title       (project title)
                 - gallery-desc        (1–2 sentences)
@@ -1465,83 +1779,208 @@ a:focus-visible, button:focus-visible {
            right-click the cover, "Copy image address".
            ============================================================ -->
       <div class="gallery">
-        <a href="https://www.behance.net/gallery/196334821/Swag-eGifts-Store" target="_blank" rel="noopener noreferrer" class="gallery-item reveal">
+        <div class="gallery-item gallery-static reveal">
           <div class="gallery-image">
-            <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808/f24d8d196334821.Y3JvcCwxNDAwLDEwOTUsMCwxNTI.png" alt="Swag eGifts Store" loading="lazy" />
-            <div class="gallery-overlay"><span class="gallery-num">005</span><span class="gallery-arrow">↗</span></div>
-            <span class="gallery-cta">VIEW CASE STUDY →</span>
+            <img referrerpolicy="no-referrer" src="https://mir-s3-cdn-cf.behance.net/projects/max_808/4df352211375135.Y3JvcCwyNDc4LDE5MzgsMCww.png" alt="AI Summarization Platform" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-num">007</span></div>
           </div>
-          <div class="gallery-meta"><span>E-COMMERCE / WEB</span><span class="dot-sep"></span><span>2024</span></div>
+          <div class="gallery-meta"><span>AI / ENTERPRISE SAAS</span></div>
+          <h3 class="gallery-title">AI Summarization Platform</h3>
+          <p class="gallery-desc">An AI-powered platform that turns long documents into structured, scannable summaries. Designed for enterprise teams who need signal from noise.</p>
+          <div class="gallery-tags"><span class="gallery-tag">AI Product</span><span class="gallery-tag">Web App</span><span class="gallery-tag">B2B</span></div>
+        </div>
+
+        <div class="gallery-item gallery-static reveal">
+          <div class="gallery-image">
+            <img referrerpolicy="no-referrer" src="https://mir-s3-cdn-cf.behance.net/projects/max_808/db36ed177189563.Y3JvcCw0MTQyLDMyNDAsMCww.png" alt="Regulatory Compliance" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-num">008</span></div>
+          </div>
+          <div class="gallery-meta"><span>B2B / ENTERPRISE</span></div>
+          <h3 class="gallery-title">Regulatory Compliance System</h3>
+          <p class="gallery-desc">A complex enterprise tool for tracking compliance across regulations, audits, and documentation — designed for clarity in a high-stakes domain.</p>
+          <div class="gallery-tags"><span class="gallery-tag">Complex SaaS</span><span class="gallery-tag">Dashboards</span></div>
+        </div>
+
+        <div class="gallery-item gallery-static reveal">
+          <div class="gallery-image">
+            <img referrerpolicy="no-referrer" src="https://mir-s3-cdn-cf.behance.net/projects/808/b5fc9d196338243.Y3JvcCwxMTE4LDg3NSwwLDA.png" alt="Loan Services" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-num">009</span></div>
+          </div>
+          <div class="gallery-meta"><span>FINTECH / WEB</span></div>
+          <h3 class="gallery-title">Loan Services &amp; Accounting</h3>
+          <p class="gallery-desc">A fintech platform for loan origination and accounting workflows. Dashboards, data tables, and the operational rigor financial products demand.</p>
+          <div class="gallery-tags"><span class="gallery-tag">Fintech</span><span class="gallery-tag">Data Viz</span></div>
+        </div>
+
+        <div class="gallery-item gallery-static reveal">
+          <div class="gallery-image">
+            <img referrerpolicy="no-referrer" src="https://mir-s3-cdn-cf.behance.net/projects/max_808/66751a153155971.Y3JvcCwxNjgyLDEzMTUsMCww.png" alt="Patient App" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-num">010</span></div>
+          </div>
+                      <div class="gallery-meta"><span>HEALTHCARE / MOBILE</span></div>
+            <h3 class="gallery-title">Patient Care App</h3>
+            <p class="gallery-desc">A mobile experience for patients to manage appointments, records, and provider communication. Healthcare UX that prioritizes calm over clutter.</p>
+            <div class="gallery-tags"><span class="gallery-tag">iOS &amp; Android</span><span class="gallery-tag">User Research</span></div>
+        </div>
+
+        <div class="gallery-item gallery-static reveal">
+          <div class="gallery-image">
+            <img referrerpolicy="no-referrer" src="https://mir-s3-cdn-cf.behance.net/projects/max_808/f24d8d196334821.Y3JvcCwxNDAwLDEwOTUsMCwxNTI.png" alt="Swag eGifts Store" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-num">011</span></div>
+          </div>
+          <div class="gallery-meta"><span>E-COMMERCE / WEB</span></div>
           <h3 class="gallery-title">Swag eGifts Store</h3>
           <p class="gallery-desc">A digital gifting marketplace built around quick browsing, simple checkout, and a clean visual identity for corporate gifting.</p>
           <div class="gallery-tags"><span class="gallery-tag">E-commerce</span><span class="gallery-tag">Checkout</span></div>
-        </a>
+        </div>
 
-        <a href="https://www.behance.net/gallery/181946019/Salon-Booking-App" target="_blank" rel="noopener noreferrer" class="gallery-item reveal">
+        <div class="gallery-item gallery-static reveal">
           <div class="gallery-image">
-            <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808/b93a64181946019.Y3JvcCw4OTQsNzAwLDM5LDA.png" alt="Salon Booking App" loading="lazy" />
-            <div class="gallery-overlay"><span class="gallery-num">006</span><span class="gallery-arrow">↗</span></div>
-            <span class="gallery-cta">VIEW CASE STUDY →</span>
+            <img referrerpolicy="no-referrer" src="https://mir-s3-cdn-cf.behance.net/projects/max_808/b93a64181946019.Y3JvcCw4OTQsNzAwLDM5LDA.png" alt="Salon Booking App" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-num">012</span></div>
           </div>
-          <div class="gallery-meta"><span>BOOKING / MOBILE</span><span class="dot-sep"></span><span>2023</span></div>
+          <div class="gallery-meta"><span>BOOKING / MOBILE</span></div>
           <h3 class="gallery-title">Salon Booking App</h3>
           <p class="gallery-desc">A consumer mobile app for discovering local salons, booking services, and managing appointments. Designed around speed and trust.</p>
           <div class="gallery-tags"><span class="gallery-tag">Mobile</span><span class="gallery-tag">Booking Flow</span></div>
-        </a>
+        </div>
 
-        <a href="https://www.behance.net/gallery/177261515/Fitness-Workout-Planner" target="_blank" rel="noopener noreferrer" class="gallery-item reveal">
+        <div class="gallery-item gallery-static reveal">
           <div class="gallery-image">
-            <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808/591097177261515.Y3JvcCwxMDM1LDgxMCwzNDgsNDE.png" alt="Fitness Workout Planner" loading="lazy" />
-            <div class="gallery-overlay"><span class="gallery-num">007</span><span class="gallery-arrow">↗</span></div>
-            <span class="gallery-cta">VIEW CASE STUDY →</span>
+            <img referrerpolicy="no-referrer" src="https://mir-s3-cdn-cf.behance.net/projects/max_808/591097177261515.Y3JvcCwxMDM1LDgxMCwzNDgsNDE.png" alt="Fitness Workout Planner" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-num">013</span></div>
           </div>
-          <div class="gallery-meta"><span>FITNESS / MOBILE</span><span class="dot-sep"></span><span>2023</span></div>
+          <div class="gallery-meta"><span>FITNESS / MOBILE</span></div>
           <h3 class="gallery-title">Fitness Workout Planner</h3>
           <p class="gallery-desc">A workout planning app combining routine tracking, progress charts, and a motivational visual language tuned for everyday athletes.</p>
           <div class="gallery-tags"><span class="gallery-tag">Mobile</span><span class="gallery-tag">Health Tech</span></div>
-        </a>
+        </div>
 
-        <a href="https://www.behance.net/gallery/153264577/Food-Chef" target="_blank" rel="noopener noreferrer" class="gallery-item reveal">
+        <div class="gallery-item gallery-static reveal">
           <div class="gallery-image">
-            <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808/bf704b153264577.Y3JvcCwxMDAyLDc4NCwxODgsNTk.png" alt="Food Chef" loading="lazy" />
-            <div class="gallery-overlay"><span class="gallery-num">008</span><span class="gallery-arrow">↗</span></div>
-            <span class="gallery-cta">VIEW CASE STUDY →</span>
+            <img referrerpolicy="no-referrer" src="https://mir-s3-cdn-cf.behance.net/projects/max_808/bf704b153264577.Y3JvcCwxMDAyLDc4NCwxODgsNTk.png" alt="Food Chef" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-num">014</span></div>
           </div>
-          <div class="gallery-meta"><span>FOOD / MOBILE</span><span class="dot-sep"></span><span>2022</span></div>
+          <div class="gallery-meta"><span>FOOD / MOBILE</span></div>
           <h3 class="gallery-title">Food Chef</h3>
           <p class="gallery-desc">A food and recipe mobile experience. Browsing, saving, and following step-by-step instructions with a focus on visual appetite.</p>
           <div class="gallery-tags"><span class="gallery-tag">Mobile</span><span class="gallery-tag">Consumer</span></div>
-        </a>
+        </div>
 
-        <a href="https://www.behance.net/gallery/157639557/Design-Agency" target="_blank" rel="noopener noreferrer" class="gallery-item reveal">
+        <div class="gallery-item gallery-static reveal">
           <div class="gallery-image">
-            <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808/974026157639557.Y3JvcCw1NTIzLDQzMjAsMjU5LDA.png" alt="Design Agency Website" loading="lazy" />
-            <div class="gallery-overlay"><span class="gallery-num">009</span><span class="gallery-arrow">↗</span></div>
-            <span class="gallery-cta">VIEW CASE STUDY →</span>
+            <img referrerpolicy="no-referrer" src="https://mir-s3-cdn-cf.behance.net/projects/max_808/974026157639557.Y3JvcCw1NTIzLDQzMjAsMjU5LDA.png" alt="Design Agency Website" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-num">015</span></div>
           </div>
-          <div class="gallery-meta"><span>MARKETING / WEB</span><span class="dot-sep"></span><span>2022</span></div>
+          <div class="gallery-meta"><span>MARKETING / WEB</span></div>
           <h3 class="gallery-title">Design Agency Website</h3>
           <p class="gallery-desc">A bold marketing site for a design agency — strong typography, clear service architecture, and a confident visual identity.</p>
           <div class="gallery-tags"><span class="gallery-tag">Marketing</span><span class="gallery-tag">Web</span></div>
-        </a>
+        </div>
 
-        <a href="https://www.behance.net/gallery/152988193/Agency-Landing-Page" target="_blank" rel="noopener noreferrer" class="gallery-item reveal">
+        <div class="gallery-item gallery-static reveal">
           <div class="gallery-image">
-            <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808/bc6474152988193.Y3JvcCwxMzgwLDEwODAsMzAsMA.png" alt="Agency Landing Page" loading="lazy" />
-            <div class="gallery-overlay"><span class="gallery-num">010</span><span class="gallery-arrow">↗</span></div>
-            <span class="gallery-cta">VIEW CASE STUDY →</span>
+            <img referrerpolicy="no-referrer" src="https://mir-s3-cdn-cf.behance.net/projects/max_808/bc6474152988193.Y3JvcCwxMzgwLDEwODAsMzAsMA.png" alt="Agency Landing Page" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-num">016</span></div>
           </div>
-          <div class="gallery-meta"><span>MARKETING / LANDING</span><span class="dot-sep"></span><span>2022</span></div>
+          <div class="gallery-meta"><span>MARKETING / LANDING</span></div>
           <h3 class="gallery-title">Agency Landing Page</h3>
           <p class="gallery-desc">A focused landing page exploration for a creative agency, emphasizing conversion-friendly hierarchy and a distinctive visual voice.</p>
           <div class="gallery-tags"><span class="gallery-tag">Landing Page</span><span class="gallery-tag">Conversion</span></div>
-        </a>
+        </div>
+
+        <div class="gallery-item gallery-static reveal">
+          <div class="gallery-image">
+            <img referrerpolicy="no-referrer" src="https://mir-s3-cdn-cf.behance.net/projects/808/c85216146140555.Y3JvcCw1NjAxLDQzODEsMzAwOCw0NTc.png" alt="AudioBlend" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-num">017</span></div>
+          </div>
+          <div class="gallery-meta"><span>MUSIC / MOBILE</span></div>
+          <h3 class="gallery-title">AudioBlend</h3>
+          <p class="gallery-desc">A music app concept with player, library, and playlist screens in a dark, colourful visual style.</p>
+          <div class="gallery-tags"><span class="gallery-tag">Mobile</span><span class="gallery-tag">Consumer</span></div>
+        </div>
+
+        <div class="gallery-item gallery-static reveal">
+          <div class="gallery-image">
+            <img referrerpolicy="no-referrer" src="https://mir-s3-cdn-cf.behance.net/projects/808/a6290e139718023.Y3JvcCw1NjAwLDQzODAsMCww.png" alt="GigMi" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-num">018</span></div>
+          </div>
+          <div class="gallery-meta"><span>SERVICES MARKETPLACE / MOBILE</span></div>
+          <h3 class="gallery-title">GigMi</h3>
+          <p class="gallery-desc">A mobile app for hiring professional handymen and getting home jobs done.</p>
+          <div class="gallery-tags"><span class="gallery-tag">Mobile</span><span class="gallery-tag">Marketplace</span></div>
+        </div>
+
+        <div class="gallery-item gallery-static reveal">
+          <div class="gallery-image">
+            <img referrerpolicy="no-referrer" src="https://mir-s3-cdn-cf.behance.net/projects/808/736db6132665653.Y3JvcCwyNjA2LDIwMzgsNDE2MSw1MjI.png" alt="Fitness and Yoga App" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-num">019</span></div>
+          </div>
+          <div class="gallery-meta"><span>FITNESS / MOBILE</span></div>
+          <h3 class="gallery-title">Fitness &amp; Yoga App</h3>
+          <p class="gallery-desc">A mobile app for finding workouts and yoga sessions, built around a calm green palette.</p>
+          <div class="gallery-tags"><span class="gallery-tag">Mobile</span><span class="gallery-tag">Health Tech</span></div>
+        </div>
+
+        <div class="gallery-item gallery-static reveal">
+          <div class="gallery-image">
+            <img referrerpolicy="no-referrer" src="https://mir-s3-cdn-cf.behance.net/projects/808/47dc3c130543055.Y3JvcCwzMTQyLDI0NTgsMTg5MCwxOTQ.png" alt="Hospital App Design" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-num">020</span></div>
+          </div>
+          <div class="gallery-meta"><span>HEALTHCARE / MOBILE</span></div>
+          <h3 class="gallery-title">Hospital App</h3>
+          <p class="gallery-desc">A patient-facing hospital app covering sign-in, hospital listings, and hospital detail screens.</p>
+          <div class="gallery-tags"><span class="gallery-tag">Mobile</span><span class="gallery-tag">Healthcare</span></div>
+        </div>
+
+        <div class="gallery-item gallery-static reveal">
+          <div class="gallery-image">
+            <img referrerpolicy="no-referrer" src="https://mir-s3-cdn-cf.behance.net/projects/808/225571130474383.Y3JvcCwzODAwLDI5NzIsMzgwMCwyNDQ.png" alt="Food App Design" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-num">021</span></div>
+          </div>
+          <div class="gallery-meta"><span>FOOD / MOBILE</span></div>
+          <h3 class="gallery-title">Food App</h3>
+          <p class="gallery-desc">A food-ordering app concept with restaurant pages and an order summary flow.</p>
+          <div class="gallery-tags"><span class="gallery-tag">Mobile</span><span class="gallery-tag">Consumer</span></div>
+        </div>
+
+        <div class="gallery-item gallery-static reveal">
+          <div class="gallery-image">
+            <img referrerpolicy="no-referrer" src="https://mir-s3-cdn-cf.behance.net/projects/808/1f7121129814479.Y3JvcCw1NzYwLDQ1MDUsMCww.png" alt="Medical Health Agency website" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-num">022</span></div>
+          </div>
+          <div class="gallery-meta"><span>HEALTHCARE / WEB</span></div>
+          <h3 class="gallery-title">Medical Health Agency</h3>
+          <p class="gallery-desc">A marketing website for a company bringing automation to the health sector.</p>
+          <div class="gallery-tags"><span class="gallery-tag">Web</span><span class="gallery-tag">Marketing</span></div>
+        </div>
+
+        <div class="gallery-item gallery-static reveal">
+          <div class="gallery-image">
+            <img referrerpolicy="no-referrer" src="https://mir-s3-cdn-cf.behance.net/projects/808/eb8835120608387.Y3JvcCwyOTA5LDIyNzUsMTg3LDY0MQ.png" alt="United Pakistan Logistics website" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-num">023</span></div>
+          </div>
+          <div class="gallery-meta"><span>LOGISTICS / WEB</span></div>
+          <h3 class="gallery-title">United Pakistan Logistics</h3>
+          <p class="gallery-desc">A company website for a freight and logistics provider, covering air and sea freight, packing, moving, and customs brokerage.</p>
+          <div class="gallery-tags"><span class="gallery-tag">Web</span><span class="gallery-tag">Logistics</span></div>
+        </div>
+
+        <div class="gallery-item gallery-static reveal">
+          <div class="gallery-image">
+            <img referrerpolicy="no-referrer" src="https://mir-s3-cdn-cf.behance.net/projects/808/c76b3c97359829.Y3JvcCwxNzY4LDEzODMsMjcxLDI0OQ.png" alt="Covid Survey App" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-num">024</span></div>
+          </div>
+          <div class="gallery-meta"><span>PUBLIC HEALTH / MOBILE</span></div>
+          <h3 class="gallery-title">Covid Survey App</h3>
+          <p class="gallery-desc">A survey app that collected data from locals about Covid symptoms and guided them on the precautions they could take.</p>
+          <div class="gallery-tags"><span class="gallery-tag">Mobile</span><span class="gallery-tag">Survey</span></div>
+        </div>
       </div>
 
       <div class="work-cta reveal">
-        <span>→ The complete archive lives on</span>
-        <a href="https://www.behance.net/hamzakhan40" target="_blank" rel="noopener noreferrer">Behance</a>
-        <span>— or reach out for in-depth case studies under NDA.</span>
+        <span>→ Want the detail behind one of these?</span>
+        <a href="#contact">Ask me for the case study</a>
       </div>
     </div>
   </section>
@@ -1567,10 +2006,10 @@ a:focus-visible, button:focus-visible {
 
   <section class="page-header">
     <div class="container">
-      <div class="page-meta reveal"><span class="line"></span><span>SERVICES / 2026</span><span>—</span><span>WHAT I DO</span></div>
+      <div class="page-meta reveal"><span class="line"></span><span>SERVICES</span><span>—</span><span>WHAT I DO</span></div>
       <h1>
-        <span class="block">Services I'm</span>
-        <span class="block">genuinely <span class="serif">good at.</span></span>
+        <span class="block">What I do,</span>
+        <span class="block">and <span class="serif">how.</span></span>
       </h1>
       <p class="page-header-sub">I work with founders, product teams, and agencies on the kind of design problems where the difference between <strong>okay</strong> and <strong>excellent</strong> compounds. Below are the engagements I take on most.</p>
     </div>
@@ -1748,13 +2187,211 @@ a:focus-visible, button:focus-visible {
 </section>
 
 <!-- ========================================================
+     PAGE: ABOUT
+     ======================================================== -->
+<section class="page" id="page-about">
+
+  <section class="page-header">
+    <div class="container">
+      <div class="page-meta reveal"><span class="line"></span><span>ABOUT</span><span>—</span><span>WHO I AM</span></div>
+      <h1>
+        <span class="block">About</span>
+        <span class="block"><span class="serif">me.</span></span>
+      </h1>
+      <!-- ====================================================
+           TO UPDATE: BIO
+           Update the paragraph below when your role, years of
+           experience, or focus changes. A shorter copy of it is
+           on the homepage (search "About teaser").
+           ==================================================== -->
+      <p class="page-header-sub">I'm <strong>Hamza</strong> — a Senior Product Designer with <strong>7+ years</strong> shipping work across <strong>AI, fintech, healthcare, and enterprise SaaS</strong>. Currently leading product design at Cinnova Technologies. I work end-to-end: research and strategy, design systems, prototypes, and the unglamorous fixes that decide whether a product actually ships.</p>
+      <div class="contact-actions">
+        <a href="mailto:hamzakhan11139@gmail.com" class="btn primary">Let's talk <span class="arrow">↗</span></a>
+        <a href="#work" class="btn">See my work <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stat Takeover — coral panel -->
+  <section class="stat-takeover" data-light-cursor>
+    <div class="container">
+      <div class="stat-takeover-label reveal">/ SEVEN YEARS IN</div>
+      <h2 class="stat-takeover-headline reveal">
+        I help teams ship products that <span class="serif">actually</span> get used.
+      </h2>
+      <!-- ====================================================
+           TO UPDATE: HERO STATS
+           Edit the three numbers below (years, projects, industries).
+           ==================================================== -->
+      <div class="stat-takeover-grid">
+        <div class="stat-takeover-item reveal">
+          <div class="stat-takeover-num">7+</div>
+          <div class="stat-takeover-text">YEARS DESIGNING</div>
+        </div>
+        <div class="stat-takeover-item reveal">
+          <div class="stat-takeover-num">30+</div>
+          <div class="stat-takeover-text">PROJECTS SHIPPED</div>
+        </div>
+        <div class="stat-takeover-item reveal">
+          <div class="stat-takeover-num">5</div>
+          <div class="stat-takeover-text">INDUSTRIES SERVED</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Approach -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label reveal">
+        <span class="num">01</span><span>APPROACH</span><span class="line"></span>
+      </div>
+      <h2 class="section-title stepped reveal"><span class="step">Strategy without</span><span class="step">screens is theory.</span><span class="step"><span class="serif">I do both.</span></span></h2>
+
+      <div class="approach-grid">
+        <div class="approach-lead reveal">
+          <em>"Senior product design</em> isn't about pushing pixels faster — it's about asking better questions earlier.<em>"</em>
+        </div>
+        <div class="approach-body reveal">
+          <p>I treat product design as a <strong>problem-shaping discipline first, a craft second</strong>. That means starting with the user, the data, and the business reality — and only then opening Figma.</p>
+          <p>I work with AI in my workflow — for rapid divergent exploration, design system upkeep, and the boring 30% of the job that used to eat days. <strong>The judgment, the taste, and the accountability stay with me</strong>.</p>
+          <p>Across seven years, four companies, and three industries, the through-line has been the same: <strong>clear hierarchy, honest copy, systems that scale, and interfaces that respect the user's time</strong>.</p>
+        </div>
+      </div>
+
+      <div class="principles">
+        <div class="principle reveal">
+          <div class="principle-num">001 — DISCOVER</div>
+          <div class="principle-title">Research before pixels.</div>
+          <div class="principle-desc">Strong opinions about what users want are mostly wrong. Talk to them. Watch them. Then design.</div>
+        </div>
+        <div class="principle reveal">
+          <div class="principle-num">002 — SYSTEMS</div>
+          <div class="principle-title">Systems over screens.</div>
+          <div class="principle-desc">A great screen is easy. A coherent product across 200 screens is the actual job.</div>
+        </div>
+        <div class="principle reveal">
+          <div class="principle-num">003 — MEASURE</div>
+          <div class="principle-title">Ship, measure, repeat.</div>
+          <div class="principle-desc">The first version is rarely right. The third one usually is — but only if you measure honestly.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label reveal">
+        <span class="num">02</span><span>EXPERIENCE</span><span class="line"></span>
+      </div>
+      <h2 class="section-title reveal">Seven years. <span class="serif">Four teams.</span></h2>
+
+      <div class="experience-list">
+        <!-- ====================================================
+             TO UPDATE: CURRENT ROLE
+             When you change jobs, update the FIRST exp-item
+             below: dates, role title, company, description.
+             To add a new role, copy any exp-item block above
+             the others and update its content.
+             To remove the divider/education entry, search:
+             "+ EDUCATION"
+             ==================================================== -->
+        <div class="exp-item reveal">
+          <div>
+            <div class="exp-role">Senior User Experience Designer</div>
+            <div class="exp-company">CINNOVA TECHNOLOGIES</div>
+          </div>
+          <div class="exp-desc">Leading product design across multiple client engagements. Owning research, design systems, and end-to-end UX for B2B SaaS, AI, and consumer products.</div>
+        </div>
+        <div class="exp-item reveal">
+          <div>
+            <div class="exp-role">Senior UI/UX Designer</div>
+            <div class="exp-company">PIKESSOFT</div>
+          </div>
+          <div class="exp-desc">Owned design across web and mobile products. Partnered with stakeholders to translate fuzzy requirements into shipped interfaces.</div>
+        </div>
+        <div class="exp-item reveal">
+          <div>
+            <div class="exp-role">UI/UX Designer</div>
+            <div class="exp-company">CODEBUILDERS</div>
+          </div>
+          <div class="exp-desc">Built and maintained design systems, style guides, and component libraries across cross-functional teams shipping responsive, consistent products.</div>
+        </div>
+        <div class="exp-item reveal">
+          <div>
+            <div class="exp-role">Assistant Team Lead</div>
+            <div class="exp-company">GAME DISTRICT</div>
+          </div>
+          <div class="exp-desc">Coordinated between design, art, development, and QA teams. Project planning, milestone tracking, storyboarding alignment.</div>
+        </div>
+
+        <div class="exp-divider reveal">
+          <span>+ EDUCATION</span>
+          <span class="line"></span>
+        </div>
+
+        <div class="exp-item reveal">
+          <div>
+            <div class="exp-role">B.S. Information Technology</div>
+            <div class="exp-company">BAHRIA UNIVERSITY</div>
+          </div>
+          <div class="exp-desc">Foundation in software, systems, and human–computer interaction.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credentials -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label reveal">
+        <span class="num">03</span><span>CREDENTIALS</span><span class="line"></span>
+      </div>
+      <h2 class="section-title reveal">Continuous <span class="serif">learning.</span></h2>
+
+      <div class="cert-grid">
+        <!-- ====================================================
+             ADD NEW CERTIFICATION
+             Copy any <div class="cert-item">…</div> block and
+             update the issuer and name.
+             ==================================================== -->
+        <div class="cert-item reveal"><div class="cert-issuer">PRODUCT SCHOOL</div><div class="cert-name">Product Strategy — Micro-Certification</div></div>
+        <div class="cert-item reveal"><div class="cert-issuer">PRODUCT SCHOOL</div><div class="cert-name">Product Discovery — Micro-Certification</div></div>
+        <div class="cert-item reveal"><div class="cert-issuer">PRODUCT SCHOOL</div><div class="cert-name">Product Analytics — Micro-Certification</div></div>
+        <div class="cert-item reveal"><div class="cert-issuer">COURSERA — GOOGLE</div><div class="cert-name">Foundations of User Experience (UX) Design</div></div>
+        <div class="cert-item reveal"><div class="cert-issuer">COURSERA — GOOGLE</div><div class="cert-name">Start the UX Design Process: Empathize, Define, Ideate</div></div>
+        <div class="cert-item reveal"><div class="cert-issuer">COURSERA — GOOGLE</div><div class="cert-name">Build Wireframes and Low-Fidelity Prototypes</div></div>
+        <div class="cert-item reveal"><div class="cert-issuer">COURSERA — GOOGLE</div><div class="cert-name">Conduct UX Research and Test Early Concepts</div></div>
+        <div class="cert-item reveal"><div class="cert-issuer">COURSERA — GOOGLE</div><div class="cert-name">Create High-Fidelity Designs and Prototypes in Figma</div></div>
+        <div class="cert-item reveal"><div class="cert-issuer">COURSERA — GOOGLE</div><div class="cert-name">Build Dynamic User Interfaces (UI) for Websites</div></div>
+        <div class="cert-item reveal"><div class="cert-issuer">COURSERA — GOOGLE</div><div class="cert-name">Design a UX for Social Good &amp; Prepare for Jobs</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="section-label reveal"><span class="num">04</span><span>NEXT</span><span class="line"></span></div>
+      <h2 class="cta-headline reveal">Want to work <span class="serif">together?</span></h2>
+      <div class="contact-actions reveal">
+        <a href="#contact" class="btn primary">Get in touch <span class="arrow">↗</span></a>
+        <a href="#services" class="btn">See services <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+</section>
+
+<!-- ========================================================
      PAGE: CONTACT
      ======================================================== -->
 <section class="page" id="page-contact">
 
   <section class="page-header">
     <div class="container">
-      <div class="page-meta reveal"><span class="line"></span><span>CONTACT / 2026</span><span>—</span><span>LET'S TALK</span></div>
+      <div class="page-meta reveal"><span class="line"></span><span>CONTACT</span><span>—</span><span>LET'S TALK</span></div>
       <h1>
         <span class="block">Let's design</span>
         <span class="block">something <span class="serif">good</span> together.</span>
@@ -1763,7 +2400,7 @@ a:focus-visible, button:focus-visible {
 
       <div class="contact-actions">
         <a href="mailto:hamzakhan11139@gmail.com" class="btn primary">Email me directly <span class="arrow">↗</span></a>
-        <a href="https://www.linkedin.com/in/hamza-khan-988669b3" target="_blank" rel="noopener noreferrer" class="btn">Message on LinkedIn <span class="arrow">↗</span></a>
+        <a href="https://www.linkedin.com/in/muhammad-hamza-khan-988669b3/" target="_blank" rel="noopener noreferrer" class="btn">Message on LinkedIn <span class="arrow">↗</span></a>
       </div>
     </div>
   </section>
@@ -1774,11 +2411,11 @@ a:focus-visible, button:focus-visible {
       <div class="section-label reveal"><span class="num">01</span><span>DIRECT CONTACT</span><span class="line"></span></div>
       <h2 class="section-title reveal">The fastest <span class="serif">ways</span> to reach me.</h2>
 
-      <div class="contact-methods">
+      <div class="contact-methods two">
         <!-- ============================================================
              TO UPDATE: CONTACT INFO
              ============================================================
-             Three methods below — email, phone, and location.
+             Two methods below — email and phone.
 
              To change the email:
                - Update mailto:... in href
@@ -1789,9 +2426,6 @@ a:focus-visible, button:focus-visible {
              To change the phone:
                - Update tel:+... in href (no spaces or dashes)
                - Update the visible number inside the <a>...</a>
-
-             To change the location:
-               - Update the visible text in contact-method-value
 
              SOCIAL LINKS (Behance, LinkedIn, Upwork) are in the next
              section below — search "FIND ME ELSEWHERE".
@@ -1804,12 +2438,7 @@ a:focus-visible, button:focus-visible {
         <div class="contact-method reveal">
           <div class="contact-method-label">PHONE — WHATSAPP</div>
           <div class="contact-method-value"><a href="tel:+923204859607">+92 320 4859607</a></div>
-          <div class="contact-method-note">9 AM — 7 PM PKT (UTC+5)</div>
-        </div>
-        <div class="contact-method reveal">
-          <div class="contact-method-label">LOCATION</div>
-          <div class="contact-method-value">Johar Town, Lahore, PK</div>
-          <div class="contact-method-note">REMOTE WORLDWIDE · OPEN TO RELOCATION</div>
+          <div class="contact-method-note">CALL OR MESSAGE ON WHATSAPP</div>
         </div>
       </div>
     </div>
@@ -1835,9 +2464,9 @@ a:focus-visible, button:focus-visible {
           <div class="contact-method-value">behance.net/hamzakhan40</div>
           <div class="contact-method-note">FULL CASE STUDY ARCHIVE ↗</div>
         </a>
-        <a href="https://www.linkedin.com/in/hamza-khan-988669b3" target="_blank" rel="noopener noreferrer" class="contact-method reveal">
+        <a href="https://www.linkedin.com/in/muhammad-hamza-khan-988669b3/" target="_blank" rel="noopener noreferrer" class="contact-method reveal">
           <div class="contact-method-label">LINKEDIN — PROFESSIONAL</div>
-          <div class="contact-method-value">linkedin.com/in/hamza-khan</div>
+          <div class="contact-method-value">linkedin.com/in/muhammad-hamza-khan</div>
           <div class="contact-method-note">EXPERIENCE &amp; ENDORSEMENTS ↗</div>
         </a>
         <a href="https://www.upwork.com/freelancers/~0129a23bfbe2d3b1af" target="_blank" rel="noopener noreferrer" class="contact-method reveal">
@@ -1882,7 +2511,7 @@ a:focus-visible, button:focus-visible {
       <div class="section-label reveal"><span class="num">04</span><span>AVAILABILITY</span><span class="line"></span></div>
       <h2 class="section-title reveal">Currently <span class="serif">open.</span></h2>
 
-      <div class="contact-methods">
+      <div class="contact-methods two">
         <div class="contact-method reveal">
           <div class="contact-method-label">FREELANCE</div>
           <div class="contact-method-value">Open</div>
@@ -1892,11 +2521,6 @@ a:focus-visible, button:focus-visible {
           <div class="contact-method-label">FULL-TIME</div>
           <div class="contact-method-value">Selectively open</div>
           <div class="contact-method-note">FOR THE RIGHT OPPORTUNITY</div>
-        </div>
-        <div class="contact-method reveal">
-          <div class="contact-method-label">CURRENT TIME</div>
-          <div class="contact-method-value" style="color:var(--accent);font-family:var(--font-mono);" id="liveTimeContact">—</div>
-          <div class="contact-method-note">LAHORE, PAKISTAN — UTC+5</div>
         </div>
       </div>
     </div>
@@ -1909,10 +2533,20 @@ a:focus-visible, button:focus-visible {
 <!-- ========== FOOTER ========== -->
 <footer class="footer">
   <div class="container">
+    <div class="footer-top">
+      <div class="where">MUHAMMAD HAMZA KHAN<small>OPEN TO FREELANCE AND FULL-TIME · REMOTE</small></div>
+      <div class="footer-links">
+        <a href="https://www.behance.net/hamzakhan40" target="_blank" rel="noopener noreferrer">Behance ↗</a>
+        <a href="https://www.linkedin.com/in/muhammad-hamza-khan-988669b3/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a href="https://www.upwork.com/freelancers/~0129a23bfbe2d3b1af" target="_blank" rel="noopener noreferrer">Upwork ↗</a>
+        <a href="#about">About Me</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="to-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top ↑</button>
+    </div>
     <div class="footer-inner">
-      <div>© 2026 MUHAMMAD HAMZA KHAN — ALL RIGHTS RESERVED</div>
-      <div>SENIOR PRODUCT DESIGNER — LAHORE, PK</div>
-      <div><span id="footerTime">—</span></div>
+      <div>© MUHAMMAD HAMZA KHAN — ALL RIGHTS RESERVED</div>
+      <div>SENIOR PRODUCT DESIGNER</div>
     </div>
   </div>
 </footer>
@@ -1921,11 +2555,12 @@ a:focus-visible, button:focus-visible {
 // ========================================================
 // ROUTING
 // ========================================================
-const VALID_PAGES = ['home', 'work', 'services', 'contact'];
+const VALID_PAGES = ['home', 'work', 'services', 'about', 'contact'];
 const PAGE_TITLES = {
   home: 'Muhammad Hamza Khan — Senior Product Designer',
   work: 'Work — Muhammad Hamza Khan',
   services: 'Services — Muhammad Hamza Khan',
+  about: 'About Me — Muhammad Hamza Khan',
   contact: 'Contact — Muhammad Hamza Khan'
 };
 
@@ -1955,6 +2590,20 @@ function handleRoute() {
   showPage(hash || 'home');
 }
 window.addEventListener('hashchange', handleRoute);
+
+// In-page navigation by click, so the four pages switch even where the
+// browser will not change the address (previews, embedded viewers).
+document.addEventListener('click', e => {
+  const a = e.target.closest && e.target.closest('a[href^="#"]');
+  if (!a) return;
+  const name = a.getAttribute('href').slice(1);
+  if (!VALID_PAGES.includes(name)) return;
+  e.preventDefault();
+  showPage(name);
+  try { history.pushState(null, '', '#' + name); } catch (err) { /* address bar is locked here; the page still switched */ }
+  if (typeof fitCaseNames === 'function') setTimeout(fitCaseNames, 50);
+});
+window.addEventListener('popstate', handleRoute);
 window.addEventListener('DOMContentLoaded', handleRoute);
 
 // ========================================================
@@ -2047,26 +2696,6 @@ document.querySelectorAll('.btn').forEach(btn => {
   btn.addEventListener('mouseleave', () => btn.style.transform = '');
 });
 
-// ========================================================
-// LIVE TIME
-// ========================================================
-function updateTime() {
-  const now = new Date();
-  const lahoreTime = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Karachi' }));
-  const hh = String(lahoreTime.getHours()).padStart(2, '0');
-  const mm = String(lahoreTime.getMinutes()).padStart(2, '0');
-  const ss = String(lahoreTime.getSeconds()).padStart(2, '0');
-
-  const liveEl = document.getElementById('liveTime');
-  const liveContactEl = document.getElementById('liveTimeContact');
-  const footerEl = document.getElementById('footerTime');
-
-  if (liveEl) liveEl.textContent = hh + ':' + mm;
-  if (liveContactEl) liveContactEl.textContent = hh + ':' + mm + ':' + ss + ' PKT';
-  if (footerEl) footerEl.textContent = 'LOCAL TIME ' + hh + ':' + mm + ':' + ss + ' PKT';
-}
-updateTime();
-setInterval(updateTime, 1000);
 
 // ========================================================
 // REVEAL on scroll (fallback for elements not on active page yet)
@@ -2078,6 +2707,256 @@ const obs = new IntersectionObserver(es => es.forEach((e, i) => {
   }
 }), { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+// ========================================================
+// FIT CASE NAMES — keep the giant project words inside the panel
+// ========================================================
+function fitCaseNames() {
+  document.querySelectorAll('.case-name').forEach(el => {
+    el.style.fontSize = '';
+    const avail = el.clientWidth * 0.96;
+    if (!avail) return;
+    const r = document.createRange(); r.selectNodeContents(el);
+    const w = r.getBoundingClientRect().width;
+    if (w > avail) el.style.fontSize = (parseFloat(getComputedStyle(el).fontSize) * avail / w) + 'px';
+  });
+}
+window.addEventListener('resize', fitCaseNames);
+window.addEventListener('hashchange', () => setTimeout(fitCaseNames, 50));
+window.addEventListener('load', fitCaseNames);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitCaseNames);
+// ========================================================
+// 3D — hero deck follows the cursor; case covers rise and tilt
+// ========================================================
+(function () {
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) return;
+  const stage = document.querySelector('.deck-stage');
+  window.addEventListener('mousemove', e => {
+    if (!stage) return;
+    stage.style.setProperty('--mx', ((e.clientX / window.innerWidth) * 2 - 1).toFixed(3));
+    stage.style.setProperty('--my', ((e.clientY / window.innerHeight) * 2 - 1).toFixed(3));
+  });
+  const shots = [...document.querySelectorAll('.case-shot')];
+  let ticking = false;
+  function onScroll() {
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(() => {
+      const vh = window.innerHeight;
+      shots.forEach(s => {
+        const r = s.getBoundingClientRect();
+        if (!r.width) return;
+        const p = Math.max(0, Math.min(1, (vh - r.top) / (vh * 0.85)));
+        s.style.setProperty('--sr', ((1 - p) * 26).toFixed(2) + 'deg');
+        s.style.setProperty('--sc', (0.9 + p * 0.1).toFixed(3));
+      });
+      ticking = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  window.addEventListener('load', onScroll); onScroll();
+  document.querySelectorAll('.case').forEach(c => {
+    const s = c.querySelector('.case-shot'), n = c.querySelector('.case-name');
+    c.addEventListener('mousemove', e => {
+      const r = c.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+      s.style.setProperty('--ty', (x * 12).toFixed(2) + 'deg');
+      s.style.setProperty('--tx', (-y * 8).toFixed(2) + 'deg');
+      if (n) n.style.setProperty('--nx', (-x * 40).toFixed(1) + 'px');
+    });
+    c.addEventListener('mouseleave', () => {
+      s.style.setProperty('--ty', '0deg'); s.style.setProperty('--tx', '0deg');
+      if (n) n.style.setProperty('--nx', '0px');
+    });
+  });
+})();
+
+// ========================================================
+// IMAGE FALLBACK — a labelled tile if a cover cannot load
+// ========================================================
+document.querySelectorAll('img').forEach(img => {
+  const fail = () => {
+    const box = img.parentElement;
+    if (!box || box.querySelector('.img-fallback')) return;
+    img.style.display = 'none';
+    const f = document.createElement('div'); f.className = 'img-fallback'; f.textContent = img.alt || 'Project';
+    box.appendChild(f);
+  };
+  if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) fail();
+  else img.addEventListener('error', fail);
+});
+// ========================================================
+// THREAD — one line drawn down the active page on scroll.
+// Where a .thread-shape element sits, the line draws a figure
+// (a tangle, a lightbulb) before carrying on.
+// ========================================================
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Figures are single strokes in a 1x1 box: they start at the top centre (0,0) and end at the bottom centre (0,1).
+  const SHAPES = {
+    tangle: 'c0,.15 -.5,.1 -.5,.35 c0,.25 .8,.25 .8,0 c0,-.2 -.55,-.2 -.55,.05 c0,.3 .75,.25 .75,0 c0,-.2 -.45,-.2 -.45,.05 c0,.2 .3,.25 .15,.37 c-.1,.08 -.2,.08 -.2,.18',
+    bulb: 'l0,.08 a.3,.3 0 1 0 -.12,.58 l0,.12 l.24,0 l0,-.12 a.3,.3 0 1 0 -.12,-.58 l0,.2 l.08,.08 l-.16,.08 l.16,.08 l-.08,.08 l0,.2 l-.1,.06 l.2,0 l-.1,.06 l0,.08'
+  };
+  function scaled(d, s) {  // scale a relative path string, leaving arc flags untouched
+    return d.replace(/([a-z])([^a-z]*)/g, (m, c, args) => {
+      const n = args.trim().split(/[\s,]+/).filter(Boolean).map(Number);
+      if (c === 'a') { const out = []; for (let i = 0; i < n.length; i += 7) out.push(n[i] * s, n[i + 1] * s, n[i + 2], n[i + 3], n[i + 4], n[i + 5] * s, n[i + 6] * s); return c + out.map(v => +v.toFixed(2)).join(' '); }
+      return c + n.map(v => +(v * s).toFixed(2)).join(' ');
+    });
+  }
+  let svg, path, head, nodes = [], segs = [], branches = [], total = 0, pageEl = null;
+  function build() {
+    document.querySelectorAll('.thread').forEach(s => s.remove());
+    pageEl = document.querySelector('.page.active'); if (!pageEl) return;
+    const W = pageEl.clientWidth, H = pageEl.scrollHeight; if (!W || !H) return;
+    // Layout position inside the page, ignoring the reveal animations' transforms
+    const box = el => { let x = 0, y = 0, e = el; while (e && e !== pageEl) { x += e.offsetLeft; y += e.offsetTop; e = e.offsetParent; } return { x: x, y: y, w: el.offsetWidth, h: el.offsetHeight }; };
+    const items = [];
+    const start = pageEl.querySelector('.hero-meta .line, .page-meta .line');
+    if (start) { const r = box(start); items.push({ x: r.x + r.w, y: r.y }); }
+    pageEl.querySelectorAll('.section-label .num').forEach(n => { const r = box(n); if (r.w) items.push({ x: r.x + r.w / 2, y: r.y + r.h / 2, node: true, sec: n.closest('section') }); });
+    pageEl.querySelectorAll('.thread-shape').forEach(el => { const r = box(el); if (r.w && SHAPES[el.dataset.shape]) items.push({ x: r.x + r.w / 2, y: r.y, shape: el.dataset.shape, s: r.h }); });
+    // A .cap-orbit makes the line split into a loop, with one stop per capability
+    pageEl.querySelectorAll('.cap-orbit').forEach(el => {
+      const wide = window.innerWidth >= 1000; el.classList.toggle('orbit-on', wide);
+      el.querySelectorAll('.orbit-item').forEach(n => { n.style.cssText = ''; });
+      if (!wide) return;
+      const o = box(el), rx = Math.min(o.w * 0.28, 430), ry = (o.h - 110) / 2, cx = o.w / 2, top = 80;
+      const stops = { left: [], right: [] };
+      ['left', 'right'].forEach(side => {
+        const list = [...el.querySelectorAll('.orbit-item[data-side="' + side + '"]')];
+        list.forEach((n, k) => {
+          const t = list.length > 1 ? 0.16 + 0.68 * k / (list.length - 1) : 0.5, a = Math.PI * t;
+          const nx = cx + (side === 'left' ? -1 : 1) * rx * Math.sin(a), ny = top + ry * (1 - Math.cos(a));
+          const room = Math.max(120, Math.min(250, (side === 'left' ? nx : o.w - nx) - 30));
+          n.style.width = room + 'px'; n.style.top = ny + 'px';
+          if (side === 'left') n.style.left = (nx - 26 - room) + 'px'; else n.style.left = (nx + 26) + 'px';
+          stops[side].push({ x: o.x + nx, y: o.y + ny, el: n });
+        });
+      });
+      const fs = el.closest('section'); for (let k = items.length - 1; k >= 0; k--) if (items[k].node && items[k].sec === fs) items.splice(k, 1);
+      items.push({ x: o.x + cx, y: o.y + top, orbit: { rx: rx, ry: ry, stops: stops } });
+    });
+    // A .cap-flow grid makes the line fork: one rail per column, one node per row
+    pageEl.querySelectorAll('.cap-flow').forEach(grid => {
+      const cols = [...grid.querySelectorAll('.cap-col')]; if (cols.length < 2) return;
+      const gb = box(grid), a = box(cols[0]), c = box(cols[1]);
+      if (c.x < a.x + 60) return;                               // columns are stacked (narrow screens): no fork
+      const rows = col => [...col.querySelectorAll('.cap-row')].map(r => { const q = box(r); return q.y + q.h / 2; });
+      const fs = grid.closest('section'); for (let k = items.length - 1; k >= 0; k--) if (items[k].node && items[k].sec === fs) items.splice(k, 1);   // go straight to the fork
+      items.push({ x: gb.x + gb.w / 2, y: gb.y - 84, fork: { xl: a.x + 8, xr: c.x + 8, left: rows(cols[0]), right: rows(cols[1]) } });
+    });
+    // The pinned intro panel draws its own bulb: the page thread stops at its top edge and resumes at its bottom edge
+    pageEl.querySelectorAll('.intro').forEach(sec => { const bulb = sec.querySelector('.bulb'); if (!bulb || !bulb.offsetWidth) return; const s = box(sec), q = box(bulb); items.push({ x: q.x + q.w / 2, y: s.y, gap: s.h }); });
+    items.sort((a, b) => a.y - b.y);
+    if (items.length < 2) return;
+    items.push({ x: W * 0.5, y: H - 24 });
+    const g = Math.max(14, Math.min(64, W * 0.04));
+    const f = v => v.toFixed(1);
+    const probe = document.createElementNS(NS, 'path');
+    let d = 'M' + f(items[0].x) + ' ' + f(items[0].y), cur = { x: items[0].x, y: items[0].y }, done = 0, weave = 0;
+    segs = []; branches = []; const nodePts = []; const branchDefs = [];
+    const push = (y0, y1, mono) => { probe.setAttribute('d', d); const L = probe.getTotalLength(); segs.push({ l0: done, l1: L, y0: y0, y1: y1, mono: mono }); done = L; };
+    for (let i = 1; i < items.length; i++) {
+      const b = items[i]; const dy = b.y - cur.y;
+      if (dy < 24) continue;                                   // too close to the previous stop: skip it
+      const prevShape = items[i - 1].shape;
+      if (b.shape || b.gap || items[i - 1].gap || prevShape || dy < 260) {                  // direct, smooth run
+        const k = dy * 0.5;
+        d += ' C' + f(cur.x) + ' ' + f(cur.y + k) + ' ' + f(b.x) + ' ' + f(b.y - k) + ' ' + f(b.x) + ' ' + f(b.y);
+      } else {                                                 // long run between sections: swing out and back
+        const k = dy * 0.24, mx = (weave++ % 2 ? W * 0.58 : W - g), my = cur.y + dy / 2;
+        d += ' C' + f(cur.x) + ' ' + f(cur.y + k) + ' ' + f(mx) + ' ' + f(my - k) + ' ' + f(mx) + ' ' + f(my);
+        d += ' C' + f(mx) + ' ' + f(my + k) + ' ' + f(b.x) + ' ' + f(b.y - k) + ' ' + f(b.x) + ' ' + f(b.y);
+      }
+      push(cur.y, b.y); cur = { x: b.x, y: b.y };
+      if (b.node) nodePts.push(cur);
+      if (b.shape) { d += ' ' + scaled(SHAPES[b.shape], b.s); push(b.y, b.y + b.s); cur = { x: b.x, y: b.y + b.s }; }
+      if (b.orbit) {
+        const O = b.orbit, yb = b.y + 2 * O.ry, arc = sw => ' A' + f(O.rx) + ' ' + f(O.ry) + ' 0 0 ' + sw + ' ' + f(b.x) + ' ' + f(yb);
+        nodePts.push({ x: b.x, y: b.y });
+        d += arc(1); push(b.y, yb, true); cur = { x: b.x, y: yb };
+        branchDefs.push({ d: 'M' + f(b.x) + ' ' + f(b.y) + arc(0), y0: b.y, y1: yb, mono: true });
+        O.stops.left.concat(O.stops.right).forEach(s => nodePts.push({ x: s.x, y: s.y, el: s.el }));
+        nodePts.push({ x: b.x, y: yb });
+      }
+      if (b.gap) { d += ' m0 ' + f(b.gap); push(b.y, b.y + b.gap); cur = { x: b.x, y: b.y + b.gap }; }
+      if (b.fork && b.fork.left.length && b.fork.right.length) {
+        const F = b.fork, rail = (x, ys) => { const k = (ys[0] - b.y) * 0.6; return ' C' + f(b.x) + ' ' + f(b.y + k) + ' ' + f(x) + ' ' + f(ys[0] - k) + ' ' + f(x) + ' ' + f(ys[0]) + ' L' + f(x) + ' ' + f(ys[ys.length - 1]); };
+        nodePts.push({ x: b.x, y: b.y });
+        d += rail(F.xl, F.left); push(b.y, F.left[F.left.length - 1]); cur = { x: F.xl, y: F.left[F.left.length - 1] };
+        F.left.forEach(y => nodePts.push({ x: F.xl, y: y })); F.right.forEach(y => nodePts.push({ x: F.xr, y: y }));
+        branchDefs.push({ d: 'M' + f(b.x) + ' ' + f(b.y) + rail(F.xr, F.right), y0: b.y, y1: F.right[F.right.length - 1] });
+        i++; while (i < items.length && items[i].y < cur.y + 24) i++; i--;   // skip stops inside the fork
+      }
+    }
+    svg = document.createElementNS(NS, 'svg'); svg.setAttribute('class', 'thread'); svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H); svg.setAttribute('preserveAspectRatio', 'none');
+    path = document.createElementNS(NS, 'path'); path.setAttribute('d', d); svg.appendChild(path);
+    branches = branchDefs.map(bd => { const p = document.createElementNS(NS, 'path'); p.setAttribute('d', bd.d); p.setAttribute('class', 'branch'); svg.appendChild(p); return { el: p, y0: bd.y0, y1: bd.y1, mono: bd.mono }; });
+    nodes = nodePts.map(p => { const c = document.createElementNS(NS, 'circle'); c.setAttribute('class', 'node'); c.setAttribute('cx', p.x); c.setAttribute('cy', p.y); c.setAttribute('r', 5); svg.appendChild(c); return { el: c, y: p.y, item: p.el }; });
+    head = document.createElementNS(NS, 'circle'); head.setAttribute('class', 'head'); head.setAttribute('r', 4); svg.appendChild(head);
+    pageEl.insertBefore(svg, pageEl.firstChild);
+    total = path.getTotalLength(); path.style.strokeDasharray = total;
+    branches.forEach(br => { br.len = br.el.getTotalLength(); br.el.style.strokeDasharray = br.len; });
+    draw();
+  }
+  function seek(el, lo, hi, y) { for (let i = 0; i < 18; i++) { const mid = (lo + hi) / 2; if (el.getPointAtLength(mid).y < y) lo = mid; else hi = mid; } return lo; }
+  function lengthAt(y) {
+    if (!segs.length || y <= segs[0].y0) return 0;
+    for (const s of segs) if (y < s.y1) {
+      if (y <= s.y0) return s.l0;
+      if (s.mono) return seek(path, s.l0, s.l1, y);            // curved run: follow the real height of the line
+      return s.l0 + (s.l1 - s.l0) * Math.max(0, (y - s.y0) / (s.y1 - s.y0));
+    }
+    return total;
+  }
+  // Eased drawing: the line follows the scroll position with a short glide
+  let shownY = null, raf = 0;
+  function targetY() { return reduce ? 1e9 : (-pageEl.getBoundingClientRect().top + window.innerHeight * 0.6); }
+  function paint(y) {
+    const len = Math.max(0, Math.min(total, lengthAt(y)));
+    path.style.strokeDashoffset = total - len;
+    const p = path.getPointAtLength(len); head.setAttribute('cx', p.x); head.setAttribute('cy', p.y);
+    nodes.forEach(n => { const on = n.y <= y; n.el.classList.toggle('on', on); if (n.item) n.item.classList.toggle('on', on); });
+    branches.forEach(br => { const t = Math.max(0, Math.min(1, (y - br.y0) / (br.y1 - br.y0))); const l = br.mono ? (t <= 0 ? 0 : t >= 1 ? br.len : seek(br.el, 0, br.len, y)) : br.len * t; br.el.style.strokeDashoffset = br.len - l; });
+  }
+  function step() {
+    raf = 0; if (!path || !pageEl) return;
+    const t = targetY(); if (shownY === null || reduce) shownY = t;
+    shownY += (t - shownY) * 0.09;
+    if (Math.abs(t - shownY) < 0.6) shownY = t; else raf = requestAnimationFrame(step);
+    paint(shownY);
+  }
+  function draw() { shownY = null; step(); }
+  window.addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(step); }, { passive: true });
+
+  // Pinned bulb: drawn by progress through the tall intro section
+  const intro = document.querySelector('.intro'), bLine = intro && intro.querySelector('.bulb-line'), bSide = intro && intro.querySelector('.bulb-side'), bHead = intro && intro.querySelector('.bulb-head');
+  let bLen = 0, sLen = 0, bShown = 0, bRaf = 0;
+  const B_TOP = 250;                                           // length of the straight drop before the glass starts
+  function bulbStep() {
+    bRaf = 0; if (!bLine || !intro.querySelector('.bulb').offsetWidth) return;
+    if (!bLen) { bLen = bLine.getTotalLength(); bLine.style.strokeDasharray = bLen; sLen = bSide.getTotalLength(); bSide.style.strokeDasharray = sLen; }
+    const r = intro.getBoundingClientRect(), span = r.height - window.innerHeight;
+    const t = reduce ? 1 : Math.max(0, Math.min(1, span > 0 ? -r.top / span : 1));
+    bShown += (t - bShown) * 0.09; if (Math.abs(t - bShown) < 0.001 || reduce) bShown = t; else bRaf = requestAnimationFrame(bulbStep);
+    const drawn = bLen * bShown;
+    bLine.style.strokeDashoffset = bLen - drawn;
+    bSide.style.strokeDashoffset = sLen - Math.max(0, Math.min(sLen, drawn - B_TOP));   // the other side of the glass, in step
+    const p = bLine.getPointAtLength(drawn); bHead.setAttribute('cx', p.x); bHead.setAttribute('cy', p.y);
+    intro.querySelectorAll('.bulb-ring').forEach(g => g.classList.toggle('on', p.y >= parseFloat(g.dataset.y) && drawn > B_TOP));
+    intro.querySelectorAll('.bulb-label').forEach(l => l.classList.toggle('on', bShown >= parseFloat(l.dataset.at)));
+  }
+  window.addEventListener('scroll', () => { if (!bRaf) bRaf = requestAnimationFrame(bulbStep); }, { passive: true });
+  window.addEventListener('resize', () => { bLen = 0; bulbStep(); });
+  let rt; const rebuild = () => { clearTimeout(rt); rt = setTimeout(build, 120); };
+  window.addEventListener('resize', rebuild); window.addEventListener('load', rebuild);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(rebuild);
+  const _show = showPage; showPage = function (n) { _show(n); rebuild(); setTimeout(bulbStep, 150); };
+  rebuild(); bulbStep();
+})();
 </script>
 </body>
 </html>

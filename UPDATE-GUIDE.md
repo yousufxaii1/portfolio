@@ -29,10 +29,11 @@ Every common edit point in `index.html` has a labeled comment marker. To find on
 | Add a new case study (work page) | `ADD NEW CASE STUDY (WORK PAGE` |
 | Update your bio / intro paragraph | `TO UPDATE: BIO` |
 | Update your current job role | `TO UPDATE: CURRENT ROLE` |
-| Update years of experience / project count | `TO UPDATE: HERO STATS` |
+| Update years of experience / project count | `TO UPDATE: HERO STATS` (coral panel on Home; the Work page header has its own copy) |
+| Edit the capabilities list | `TO UPDATE: CAPABILITIES` |
 | Add a certification | `ADD NEW CERTIFICATION` |
 | Add or edit a service | `ADD NEW SERVICE` |
-| Update email, phone, location | `TO UPDATE: CONTACT INFO` |
+| Update email or phone | `TO UPDATE: CONTACT INFO` |
 | Update Behance / LinkedIn / Upwork URLs | `TO UPDATE: SOCIAL LINKS` |
 | Change the accent color (red → blue, etc.) | `TO UPDATE: ACCENT COLOR` |
 
@@ -68,18 +69,19 @@ You finished a new project on Behance and want to add it.
 
 ---
 
-### 2. Replace one of the 4 featured projects on the homepage
+### 2. Replace or add a featured project on the homepage
 
-The homepage features your top 4 projects in an asymmetric grid. To swap one:
+The homepage shows 5 featured projects as full-width panels that alternate dark and light. To swap or add one:
 
 1. Search for `ADD NEW CASE STUDY (HOMEPAGE`.
-2. Find the card you want to replace — they're labeled `CASE STUDY 001`, `002`, `003`, `004`.
-3. Update the same 7 fields as above (project URL, image, alt text, category, title, description, tags). **Don't change the structure** — just the values.
+2. Find the panel you want. They're labeled `CASE PANEL 01` to `CASE PANEL 05`.
+3. To replace, change the values in that panel. To add, copy a whole `<a class="case ...">…</a>` block and paste it after the last one.
+4. Update these fields: project URL, the number/category/year line, the one-sentence summary, the big word (`case-name`), the image URL and alt text, and the title-and-tags line at the bottom.
 
-**Important:** The first card is full-width (hero card, larger image). The 4th card is a horizontal split (image + text side by side). Keep this in mind when picking which project goes where:
-- Card 001 → your strongest, most recent project
-- Cards 002 & 003 → solid, standard projects
-- Card 004 → a project that benefits from text alongside the image (good for telling a quick story)
+**Important:**
+- The big word should be one short word, 10 letters or fewer (e.g. `Lending`). It shrinks automatically if it's too wide.
+- Alternate `case dark` and `case light`. Dark panels also need `data-light-cursor` in the opening tag — copy from another dark panel.
+- If you add a project, also update "See all 22 projects" just below the panels.
 
 ---
 
@@ -98,7 +100,6 @@ If you also want to update the headline ("Designing products people love/trust/n
 
 1. Search for `TO UPDATE: CURRENT ROLE`.
 2. The first experience entry is your current role. Update:
-   - **Date range** (e.g. "JAN 2026 — PRESENT")
    - **Role title** (inside `<div class="exp-role">...</div>`)
    - **Company name** (inside `<div class="exp-company">...</div>`)
    - **Description** (inside `<div class="exp-desc">...</div>`)
@@ -114,22 +115,21 @@ To **demote a role to past experience**, just update its date range to show an e
 1. Search for `ADD NEW CERTIFICATION`.
 2. Copy any existing `<div class="cert-item reveal">...</div>` block.
 3. Paste it as the new first entry (newest at top).
-4. Update three fields:
+4. Update two fields:
    - Issuer (e.g. `PRODUCT SCHOOL`, `COURSERA — GOOGLE`)
    - Certificate name
-   - Date (e.g. `JAN 2026`)
 
 ---
 
 ### 6. Update contact info or social links
 
-**For email, phone, location:**
+**For email or phone:**
 1. Search for `TO UPDATE: CONTACT INFO`.
-2. Update the values inside the three contact cards.
-3. **Important:** The email also appears in two CTA buttons higher up in the contact page header — search for `mailto:muhammadhamzak005` and update those too.
+2. Update the values inside the two contact cards.
+3. **Important:** The email also appears in two CTA buttons higher up in the contact page header — search for `mailto:` and update those too.
 4. The phone number link starts with `tel:+` and should have **no spaces** (e.g. `tel:+923204859607`).
 
-**For Behance / LinkedIn / Upwork:**
+**For Behance / LinkedIn / Upwork:** (these links also appear in the footer — search `footer-links`)
 1. Search for `TO UPDATE: SOCIAL LINKS`.
 2. Update **two things** for each card:
    - The URL after `href="..."` (the actual link destination)
@@ -244,9 +244,10 @@ Until then, this single-file setup is the right tool. It's faster to load, costs
 ## Quick reference — the 4 pages and what's on each
 
 **Home (`#home`)** — landing page
-- Hero with rotating word and stats
+- Hero with oversized headline and rotating word
 - Marquee of industries
-- 4 featured case studies (asymmetric layout)
+- Capabilities (search `TO UPDATE: CAPABILITIES`)
+- 5 featured case studies (full-width dark/light panels)
 - Coral stat takeover panel
 - Approach + 3 principles
 - Experience timeline + Education
@@ -255,8 +256,8 @@ Until then, this single-file setup is the right tool. It's faster to load, costs
 
 **Work (`#work`)** — full archive
 - Page header with stats grid
-- 4 featured case studies (asymmetric)
-- 6 more projects (standard 2-up grid)
+- 6 featured case studies (2-up grid)
+- 16 more projects (2-up grid)
 - CTA
 
 **Services (`#services`)** — your offerings
@@ -266,7 +267,7 @@ Until then, this single-file setup is the right tool. It's faster to load, costs
 - CTA
 
 **Contact (`#contact`)** — how to reach you
-- Direct contact (email, phone, location)
+- Direct contact (email, phone)
 - Find me elsewhere (Behance, LinkedIn, Upwork)
 - Best Fit projects
 - Availability + live time
@@ -274,3 +275,55 @@ Until then, this single-file setup is the right tool. It's faster to load, costs
 ---
 
 *Last updated: when you deployed. Keep this file alongside `index.html` so future-you (or anyone helping you) knows where everything lives.*
+
+---
+
+## Case study pages (added Nov 2026)
+
+The site is now a folder, not a single file. Keep this structure when you upload:
+
+```
+index.html
+UPDATE-GUIDE.md
+case-studies/
+  case.css, case.js          shared styling for every case study page
+  rsi.html, trusted-therapist-network.html, engaged-scholar.html,
+  score-funder.html, almana-hospital.html, keyki.html
+  img/<name>/01.webp …       the visuals for that case study
+  img/<name>/thumb.webp      the mockup used on cards and homepage panels
+```
+
+**Edit the text of a case study:** open its `.html` file and change the words between the tags. Headings, paragraphs and cards are ordinary text.
+
+**Replace a visual:** export the new image from Figma, save it over the matching file in `case-studies/img/<name>/` with the same file name.
+
+**Change a thumbnail mockup:** replace `case-studies/img/<name>/thumb.webp`. The Work page card, the homepage panel and the hero stack all use that one file.
+
+**Add a new case study page:** copy an existing `.html` file, rename it, change the text and image paths, then add a card on the Work page (search `ADD NEW CASE STUDY (WORK PAGE — IN-DEPTH`) and, if you want it on the homepage, a panel (search `ADD NEW CASE STUDY (HOMEPAGE`). Also update the "Next case study" link at the bottom of the page before it.
+
+---
+
+## About page and homepage layout (added Nov 2026)
+
+The site now has five pages: Home, Work, Services, About, Contact.
+
+- **Home** is short: hero, intro statement, Capabilities, six project panels, an About teaser, and the contact call-to-action.
+- **About** (`#about`) holds your bio, the coral stats panel, Approach, Experience, Education and Credentials. The markers `TO UPDATE: BIO`, `TO UPDATE: HERO STATS`, `TO UPDATE: CURRENT ROLE` and `ADD NEW CERTIFICATION` now all land on the About page.
+- The bio appears twice: on the About page and in the homepage "About teaser". Update both.
+- To add a page link to the menu, search `data-page="about"` and copy that line.
+
+---
+
+## Menu order, process section and thread shapes (added Nov 2026)
+
+- **Menu order** is Home, About Me, Services, Work, Contact. To change it, search `data-page="home"` in `index.html` and reorder those five lines (the case study pages have their own copy of the menu).
+- **Process** is section 02 on the homepage. It uses the same four phases as the Services page; if you edit one, edit the other.
+- **Bulb panel:** the ivory intro section holds in place while the bulb draws. Its text is in the `id="idea"` section; the three labels beside the bulb are the `bulb-label` lines. To make it hold for longer or shorter, search `.intro { height: 230vh` and change the number. Below 1000px wide the bulb is hidden and the panel scrolls normally.
+- **Capabilities loop:** the thread splits into a loop and the ten capabilities sit around it, Product Design on the left and AI on the right. Each one is an `orbit-item` line (search `TO UPDATE: CAPABILITIES`); the script places them, so you only edit the text. Keep both sides the same length. Below 1000px wide they show as a plain two-column list.
+
+---
+
+## No dates, time or location (Nov 2026)
+
+The site shows no clock, years, job or certificate dates, or location. If you add a new role or certificate, leave the dates out to keep it consistent; the experience rows now have two columns (role, description), and certificates show issuer and name only.
+
